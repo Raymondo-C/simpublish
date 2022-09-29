@@ -1,0 +1,589 @@
+
+                <html lang="en" class="simpread-font simpread-theme-root" style=''>
+                    <head>
+                        <meta charset="utf-8">
+                        <meta http-equiv="content-type" content="text/html; charset=UTF-8;charset=utf-8">
+                        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+                        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+                        <meta name="author" content="Kenshin"/>
+                        <meta name="description" content="简悦 SimpRead - 如杂志般沉浸式阅读体验的扩展" />
+                        <meta name="keywords" content="Chrome extension, Chrome 扩展, 阅读模式, 沉浸式阅读, 简悦, 简阅, read mode, reading mode, reader view, firefox, firefox addon, userscript, safari, opera, tampermonkey"/>
+                        <meta name="thumbnail" content="https://simpread-1254315611.cos.ap-shanghai.myqcloud.com/static/introduce-2.png"/>
+                        <meta property="og:title" content="简悦 SimpRead - 如杂志般沉浸式阅读体验的扩展"/>
+                        <meta property="og:type" content="website">
+                        <meta property="og:local" content="zh_CN"/>
+                        <meta property="og:url" content="http://ksria.com/simpread"/>
+                        <meta property="og:image" content="https://simpread-1254315611.cos.ap-shanghai.myqcloud.com/static/introduce-2.png"/>
+                        <meta property="og:image:type" content="image/png"/>
+                        <meta property="og:image:width" content="960"/>
+                        <meta property="og:image:height" content="355"/>
+                        <meta property="og:site_name" content="http://ksria.com/simpread"/>
+                        <meta property="og:description" content="简悦 SimpRead - 如杂志般沉浸式阅读体验的扩展"/>
+                        <style type="text/css">.simpread-font{font:300 16px/1.8 -apple-system,PingFang SC,Microsoft Yahei,Lantinghei SC,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif;color:#333;text-rendering:optimizelegibility;-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased}.simpread-hidden{display:none}.simpread-read-root{display:-webkit-flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;margin:0;top:-1000px;left:0;width:100%;z-index:2147483646;overflow-x:hidden;opacity:0;-webkit-transition:all 1s cubic-bezier(.23,1,.32,1) .1s;transition:all 1s cubic-bezier(.23,1,.32,1) .1s}.simpread-read-root-show{top:0}.simpread-read-root-hide{top:1000px}sr-read{display:-webkit-flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-flow:column nowrap;flex-flow:column;margin:20px 20%;min-width:400px;min-height:400px;text-align:center}read-process{position:fixed;top:0;left:0;height:3px;width:100%;background-color:#64b5f6;-webkit-transition:width 2s;transition:width 2s;z-index:20000}sr-rd-content-error{display:block;position:relative;margin:0;margin-bottom:30px;padding:25px;background-color:rgba(0,0,0,.05)}sr-rd-footer{-webkit-box-orient:vertical;-ms-flex-direction:column;flex-direction:column;font-size:14px}sr-rd-footer,sr-rd-footer-group{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-direction:normal}sr-rd-footer-group{-webkit-box-orient:horizontal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}sr-rd-footer-line{width:100%;border-top:1px solid #e0e0e0}sr-rd-footer-text{min-width:150px}sr-rd-footer-copywrite{margin:10px 0 0;color:inherit}sr-rd-footer-copywrite abbr{-webkit-font-feature-settings:normal;font-feature-settings:normal;font-variant:normal;text-decoration:none}sr-rd-footer-copywrite .second{margin:10px 0}sr-rd-footer-copywrite .third a:hover{border:none!important}sr-rd-footer-copywrite .third a:first-child{margin-right:50px}sr-rd-footer-copywrite .sr-icon{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:33px;height:33px;opacity:.8;-webkit-transition:opacity .5s ease;transition:opacity .5s ease;cursor:pointer}sr-rd-footer-copywrite .sr-icon:hover{opacity:1}sr-rd-footer-copywrite a,sr-rd-footer-copywrite a:link,sr-rd-footer-copywrite a:visited{margin:0;padding:0;color:inherit;background-color:transparent;font-size:inherit!important;line-height:normal;text-decoration:none;vertical-align:baseline;vertical-align:initial;border:none!important;box-sizing:border-box}sr-rd-footer-copywrite a:focus,sr-rd-footer-copywrite a:hover,sr-rd-footer a:active{color:inherit;text-decoration:none;border-bottom:1px dotted!important}.simpread-blocks{text-decoration:none!important}.simpread-blocks *{margin:0}.simpread-blocks a{padding:0;text-decoration:none!important}.simpread-blocks img{margin:0;padding:0;border:0;background:transparent;box-shadow:none}.simpread-focus-root{display:block;position:fixed;top:0;left:0;right:0;bottom:0;background-color:hsla(0,0%,92%,.9);z-index:2147483645;opacity:0;-webkit-transition:opacity 1s cubic-bezier(.23,1,.32,1) 0ms;transition:opacity 1s cubic-bezier(.23,1,.32,1) 0ms}.simpread-focus-highlight{position:relative;box-shadow:0 0 0 20px #fff;background-color:#fff;overflow:visible;z-index:2147483646}.sr-controlbar-bg sr-rd-crlbar,.sr-controlbar-bg sr-rd-crlbar fab{z-index:2147483647}sr-rd-crlbar.controlbar{position:fixed;right:0;bottom:0;width:100px;height:100%;opacity:0;-webkit-transition:opacity .5s ease;transition:opacity .5s ease}sr-rd-crlbar.controlbar:hover{opacity:1}sr-rd-crlbar fap *{box-sizing:border-box}@media (max-height:620px){fab{zoom:.8}}@media (max-height:783px){dialog-gp dialog-content{max-height:580px}dialog-gp dialog-footer{border-top:1px solid #e0e0e0}}.simpread-highlight-selector{outline:3px dashed #1976d2!important;cursor:pointer!important}.simpread-highlight-controlbar,.simpread-highlight-selector{background-color:#fafafa!important;opacity:.8!important;-webkit-transition:opacity .5s ease!important;transition:opacity .5s ease!important}.simpread-highlight-controlbar{position:relative!important;border:3px dashed #1976d2!important}simpread-highlight,sr-snapshot-ctlbar{position:fixed;top:0;left:0;right:0;padding:15px;height:50px;background-color:rgba(50,50,50,.9);box-shadow:0 2px 5px rgba(0,0,0,.26);box-sizing:border-box;z-index:2147483640}simpread-highlight,sr-highlight-ctl,sr-snapshot-ctlbar{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}sr-highlight-ctl{margin:0 5px;width:50px;height:20px;color:#fff;background-color:#1976d2;border-radius:4px;box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);cursor:pointer}toc-bg{position:fixed;left:0;top:0;width:50px;height:200px;font-size:medium}toc-bg:hover{z-index:3}.toc-bg-hidden{opacity:0;-webkit-transition:opacity .5s ease;transition:opacity .5s ease}.toc-bg-hidden:hover{opacity:1;z-index:3}.toc-bg-hidden:hover toc{width:180px}toc *{all:unset}toc{position:fixed;left:0;top:100px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;padding:10px;width:0;max-width:200px;max-height:500px;overflow-x:hidden;overflow-y:hidden;cursor:pointer;border:1px solid hsla(0,0%,62%,.22);-webkit-transition:width .5s;transition:width .5s}toc:hover{overflow-y:auto}toc.mini:hover{width:200px!important}toc::-webkit-scrollbar{width:3px}toc::-webkit-scrollbar-thumb{border-radius:10px;background-color:hsla(36,2%,54%,.5)}toc outline{position:relative;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;padding:2px 0;min-height:21px;line-height:21px;text-align:left}toc outline a,toc outline a:active,toc outline a:focus,toc outline a:visited{display:block;width:100%;color:inherit;font-size:11px;text-decoration:none!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}toc outline a:hover{font-weight:700!important}toc outline a.toc-outline-theme-dark,toc outline a.toc-outline-theme-night{color:#fff!important}.toc-level-h1{padding-left:5px}.toc-level-h2{padding-left:15px}.toc-level-h3{padding-left:25px}.toc-level-h4{padding-left:35px}.toc-outline-active{border-left:2px solid #f44336}toc outline active{position:absolute;left:0;top:0;bottom:0;padding:0 0 0 3px;border-left:2px solid #e8e8e8}sr-kbd{background:-webkit-gradient(linear,0 0,0 100%,from(#fff785),to(#ffc542));border:1px solid #e3be23;-o-border-image:none;border-image:none;-o-border-image:initial;border-image:initial;position:absolute;left:0;padding:1px 3px 0;font-size:11px!important;font-weight:700;box-shadow:0 3px 7px 0 rgba(0,0,0,.3);overflow:hidden;border-radius:3px}.sr-kbd-a{position:relative}kbd-mapping{position:fixed;left:5px;bottom:5px;-ms-flex-flow:row;flex-flow:row;width:250px;height:500px;background-color:#fff;border:1px solid hsla(0,0%,62%,.22);box-shadow:0 2px 5px rgba(0,0,0,.26);border-radius:3px}kbd-mapping,kbd-maps{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}kbd-maps{margin:40px 0 20px;width:100%;overflow-x:auto}kbd-maps::-webkit-scrollbar-thumb{background-clip:padding-box;border-radius:10px;border:2px solid transparent;background-color:rgba(85,85,85,.55)}kbd-maps::-webkit-scrollbar{width:10px;-webkit-transition:width .7s cubic-bezier(.4,0,.2,1);transition:width .7s cubic-bezier(.4,0,.2,1)}kbd-mapping kbd-map-title{position:absolute;margin:5px 0;width:100%;font-size:14px;font-weight:700}kbd-maps-group{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start}kbd-maps-title{margin:5px 0;padding-left:53px;font-size:12px;font-weight:700}kbd-map kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#444d56;vertical-align:middle;background-color:#fafbfc;border:1px solid #c6cbd1;border-bottom-color:#959da5;border-radius:3px;box-shadow:inset 0 -1px 0 #959da5}kbd-map kbd-name{display:inline-block;text-align:right;width:50px}kbd-map kbd-desc{padding-left:3px}sharecard-bg{position:fixed;top:0;left:0;width:100%;height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;background-color:rgba(0,0,0,.4);z-index:2147483647}sharecard{max-width:450px;background-color:#64b5f6}sharecard,sharecard-head{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}sharecard-head{margin:25px;color:#fff;border-radius:10px;box-shadow:0 2px 6px 0 rgba(0,0,0,.2),0 25px 50px 0 rgba(0,0,0,.15)}sharecard-card{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}sharecard-card,sharecard-top{display:-webkit-box;display:-ms-flexbox;display:flex}sharecard-top{-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding-right:5px;height:65px;background-color:#fff;color:#878787;font-size:25px;font-weight:500;border-top-left-radius:10px;border-top-right-radius:10px}sharecard-top span.logos{display:block;width:48px;height:48px;margin:5px;background-repeat:no-repeat;background-position:50%;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAABU1BMVEUAAAAnNJMnNZI3Q5onNJInNJMnNJInNJMnNJI8SJ0tOZY/S55EUKAoNJI6RpwoNJNIU6InNJInNJImNJI7SJwmNJJ2fLUiMJFKVaNCTJ9faK1HUaJOWKVSXaUnNJNYY6pye7cmM5JXYKhwebMjMI8mL4719fW9vb0oNZP/UlLz8/QqN5TAwMAnNJPv7+/Pz8/q6+/p6enNzc3Kysry8vMsOJXc3env7/LU1uXo29vR0dHOzs7ExMTwjo73bW37XV3Aj1TCYELl5u3n5+fW2Obn6O7f4OrZ2+g0QJkxPpgvO5bh4uvS1OTP0ePCwsJQW6ZLVqTs7fHd3d3V1dXqv79VX6lET6A1TIxXUIBSgHxWQnpelHf+WVnopkXqbC7j5Ozi4uLDw8NGUaFATJ9SgH3r6+vGyd7BxNva2trX19ejqM2gpczHx8dze7Zha67Z2dlTgH1aXQeSAAAAJnRSTlMA6ff+497Y8NL+/fv49P379sqab/BeOiX06tzVy8m/tKqpalA7G6oKj0EAAAJlSURBVEjHndNXWxpBFIDhcS2ICRLAkt4Dx4WhLk0E6R0MYoIISrWX5P9f5cwSIRC2+T1czMV5n2FnZwn2eWONUqCAv3H2Uf5Ra1hx4+0WEXtDQW0fCPYJ1EffEfIV4CSROAE4jsePoTFsNmTJF/IeIHF2lgCIn57GodlqDWXBK7IwBYatVlMWFAildPKX7I3m74Z9fsCiQChoimoFQAz04Ad2gH1n9fv9n9hgMNDr9euLWD6fLxQKxaLfb7dTSlahbFVdEPwIQtrAihZQgyKCtCagbQe3xh0QFMgy5MR11+ewYY5/qlZ7vT2xu93ULKjbFLpiUxnIIwjgKmVTLDUFXMrAi2NJWCRLIthTBo4xyOLKpwyqU6CuDCI41hFBCVdOhyLw4FgJ1skCAiyl9BSHbCorgo6VJXTru5hrVCQS8Yr5xLzX59YJSFpVFwD9U0BGC3hGdFpATgRupTGe9R9I1b1ePBvXKDyvq/O/44LT4/E4BUbSCAwj8Evq6HlnOBprx6JhJz8Gktc7xeaP9ndY+0coQvCccFBD4JW60UIY50ciLOAODAQRVOeCHm4Q3Xks6uRDY+CQ+AR4T2wMYh6+jMCIQOp78CFoj0H7EQgIuhI3dGaHCrwgADwCPjJvA372GRigCJg49FUdk3D87pq3zp4SA5zc1Zh9DxfwkpjgUg5Mv+lbeE3McC8Lpu7SA3wk2xzcqL2tN5DfIsQC8HB7UamUy6FQOpTO5QKBQDZbKnWSyUzGjdWCwaDA8+7Le4BNgm3qQGWchYh9s5hNq6wVbBlbwhZYOp3OYOA4zmgEypnM2zj8ByIdedKrH8vDAAAAAElFTkSuQmCC");zoom:.8}sharecard-content{padding:15px;max-height:500px;font-size:20px;text-align:justify;background-color:#2196f3;overflow-x:hidden;overflow-y:auto}sharecard-via{padding:10px;font-size:10px;background-color:#2196f3}sharecard-footer{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;padding-right:5px;height:100px;background-color:#fff;color:#878787;font-size:15px;font-weight:500;border-bottom-left-radius:10px;border-bottom-right-radius:10px}sharecard-footer,sharecard-footer div{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}sharecard-footer span.qrcode{display:block;width:100px;height:100px;margin:5px;background-repeat:no-repeat;background-position:50%;background-image:url("data:image/png;base64,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")}sharecard-control{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:0 19px;height:80px;background-color:#fff}simpread-snapshot{width:100%;height:100%;cursor:move;z-index:2147483645}simpread-snapshot,sr-mask{position:fixed;left:0;top:0}sr-mask{background-color:rgba(0,0,0,.1)}.simpread-feedback,.simpread-urlscheme{position:fixed;right:20px;bottom:20px;z-index:2147483646}simpread-feedback,simpread-urlscheme{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;padding:20px 20px 0;width:500px;color:rgba(51,51,51,.87);background-color:#fff;border-radius:3px;box-shadow:0 0 2px rgba(0,0,0,.12),0 2px 2px rgba(0,0,0,.26);overflow:hidden;-webkit-transform-origin:bottom;transform-origin:bottom;-webkit-transition:all .6s ease;transition:all .6s ease}simpread-feedback *,simpread-urlscheme *{font-size:12px!important;box-sizing:border-box}simpread-feedback.active,simpread-urlscheme.active{-webkit-animation-name:srFadeInUp;animation-name:srFadeInUp;-webkit-animation-duration:.45s;animation-duration:.45s;-webkit-animation-fill-mode:both;animation-fill-mode:both}simpread-feedback.hide,simpread-urlscheme.hide{-webkit-animation-name:srFadeInDown;animation-name:srFadeInDown;-webkit-animation-duration:.45s;animation-duration:.45s;-webkit-animation-fill-mode:both;animation-fill-mode:both}simpread-feedback sr-fb-label,simpread-urlscheme sr-urls-label{width:100%}simpread-feedback sr-fb-head,simpread-urlscheme sr-urls-head{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;margin-bottom:5px;width:100%}simpread-feedback sr-fb-content,simpread-urlscheme sr-urls-content{margin-bottom:5px;width:100%}simpread-feedback sr-urls-footer,simpread-urlscheme sr-urls-footer{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;width:100%}simpread-feedback sr-fb-a,simpread-urlscheme sr-urls-a{color:#2163f7;cursor:pointer}simpread-feedback text-field-state,simpread-urlscheme text-field-state{border-top:none rgba(34,101,247,.8)!important;border-left:none rgba(34,101,247,.8)!important;border-right:none rgba(34,101,247,.8)!important;border-bottom:2px solid rgba(34,101,247,.8)!important}simpread-feedback switch,simpread-urlscheme switch{margin-top:0!important}@-webkit-keyframes srFadeInUp{0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}to{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes srFadeInUp{0%{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}to{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@-webkit-keyframes srFadeInDown{0%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}to{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}}@keyframes srFadeInDown{0%{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}to{opacity:0;-webkit-transform:translateY(100px);transform:translateY(100px)}}simpread-feedback sr-fb-head{font-weight:700}simpread-feedback sr-fb-content{-webkit-box-orient:vertical;-ms-flex-direction:column;flex-direction:column}simpread-feedback sr-fb-content,simpread-feedback sr-fb-footer{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-direction:normal}simpread-feedback sr-fb-footer{-webkit-box-orient:horizontal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;width:100%}simpread-feedback sr-close{position:absolute;right:20px;cursor:pointer;-webkit-transition:all 1s cubic-bezier(.23,1,.32,1) .1s;transition:all 1s cubic-bezier(.23,1,.32,1) .1s;z-index:200}simpread-feedback sr-close:hover{-webkit-transform:rotate(-15deg) scale(1.3);transform:rotate(-15deg) scale(1.3)}simpread-feedback sr-stars{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-top:10px}simpread-feedback sr-stars i{margin-right:10px;cursor:pointer}simpread-feedback sr-stars i svg{-webkit-transition:all 1s cubic-bezier(.23,1,.32,1) .1s;transition:all 1s cubic-bezier(.23,1,.32,1) .1s}simpread-feedback sr-stars i svg:hover{-webkit-transform:rotate(-15deg) scale(1.3);transform:rotate(-15deg) scale(1.3)}simpread-feedback sr-stars i.active svg{-webkit-transform:rotate(0) scale(1);transform:rotate(0) scale(1)}simpread-feedback sr-emojis{display:block;height:100px;overflow:hidden}simpread-feedback sr-emoji{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-transition:.3s;transition:.3s}simpread-feedback sr-emoji>svg{margin:15px 0;width:70px;height:70px;-ms-flex-negative:0;flex-shrink:0}simpread-feedback sr-stars-footer{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin:10px 0 20px}</style>
+                        <style type="text/css">.simpread-theme-root{font-size:62.5%!important}sr-rd-content,sr-rd-desc,sr-rd-title{width:100%}sr-rd-title{display:-webkit-box;margin:1em 0 .5em;overflow:hidden;text-overflow:ellipsis;text-rendering:optimizelegibility;-webkit-line-clamp:3;-webkit-box-orient:vertical}sr-rd-content{text-align:left;word-break:break-word}sr-rd-desc{text-align:justify;line-height:2.4;margin:0 0 1.2em;box-sizing:border-box}sr-rd-content{font-size:25.6px;font-size:1.6rem;line-height:1.6}sr-rd-content h1,sr-rd-content h1 *,sr-rd-content h2,sr-rd-content h2 *,sr-rd-content h3,sr-rd-content h3 *,sr-rd-content h4,sr-rd-content h4 *,sr-rd-content h5,sr-rd-content h5 *,sr-rd-content h6,sr-rd-content h6 *{word-break:break-all}sr-rd-content div,sr-rd-content p{display:block;float:inherit;line-height:1.6;font-size:25.6px;font-size:1.6rem}sr-rd-content div,sr-rd-content p,sr-rd-content pre,sr-rd-content sr-blockquote{margin:0 0 1.2em;word-break:break-word}sr-rd-content a{padding:0 5px;vertical-align:baseline;vertical-align:initial}sr-rd-content a,sr-rd-content a:link{color:inherit;font-size:inherit;font-weight:inherit;border:none}sr-rd-content a:hover{background:transparent}sr-rd-content img{margin:10px;padding:5px;max-width:100%;background:#fff;border:1px solid #bbb;box-shadow:1px 1px 3px #d4d4d4}sr-rd-content figcaption{text-align:center;font-size:14px}sr-rd-content sr-blockquote{display:block;position:relative;padding:15px 25px;text-align:left;line-height:inherit}sr-rd-content sr-blockquote:before{position:absolute}sr-rd-content sr-blockquote *{margin:0;font-size:inherit}sr-rd-content table{width:100%;margin:0 0 1.2em;word-break:keep-all;word-break:normal;overflow:auto;border:none}sr-rd-content table td,sr-rd-content table th{border:none}sr-rd-content ul{margin:0 0 1.2em;margin-left:1.3em;padding:0;list-style:disc}sr-rd-content ol{list-style:decimal;margin:0;padding:0}sr-rd-content ol li,sr-rd-content ul li{font-size:inherit;list-style:disc;margin:0 0 1.2em}sr-rd-content ol li{list-style:decimal;margin-left:1.3em}sr-rd-content ol li *,sr-rd-content ul li *{margin:0;text-align:left;text-align:initial}sr-rd-content li ol,sr-rd-content li ul{margin-bottom:.8em;margin-left:2em}sr-rd-content li ul{list-style:circle}sr-rd-content pre{font-family:Consolas,Monaco,Andale Mono,Source Code Pro,Liberation Mono,Courier,monospace;display:block;padding:15px;line-height:1.5;word-break:break-all;word-wrap:break-word;white-space:pre;overflow:auto}sr-rd-content pre,sr-rd-content pre *,sr-rd-content pre div{font-size:17.6px;font-size:1.1rem}sr-rd-content li pre code,sr-rd-content p pre code,sr-rd-content pre{background-color:transparent;border:none}sr-rd-content pre code{margin:0;padding:0}sr-rd-content pre code,sr-rd-content pre code *{font-size:17.6px;font-size:1.1rem}sr-rd-content pre p{margin:0;padding:0;color:inherit;font-size:inherit;line-height:inherit}sr-rd-content li code,sr-rd-content p code{margin:0 4px;padding:2px 4px;font-size:17.6px;font-size:1.1rem}sr-rd-content mark{margin:0 5px;padding:2px;background:#fffdd1;border-bottom:1px solid #ffedce}.sr-rd-content-img{width:90%;height:auto}.sr-rd-content-img-load{width:48px;height:48px;margin:0;padding:0;border-style:none;border-width:0;background-repeat:no-repeat;background-image:url(data:image/gif;base64,R0lGODlhMAAwAPcAAAAAABMTExUVFRsbGx0dHSYmJikpKS8vLzAwMDc3Nz4+PkJCQkRERElJSVBQUFdXV1hYWFxcXGNjY2RkZGhoaGxsbHFxcXZ2dnl5eX9/f4GBgYaGhoiIiI6OjpKSkpaWlpubm56enqKioqWlpampqa6urrCwsLe3t7q6ur6+vsHBwcfHx8vLy8zMzNLS0tXV1dnZ2dzc3OHh4eXl5erq6u7u7vLy8vf39/n5+f///wEBAQQEBA4ODhkZGSEhIS0tLTk5OUNDQ0pKSk1NTV9fX2lpaXBwcHd3d35+foKCgoSEhIuLi4yMjJGRkZWVlZ2dnaSkpKysrLOzs7u7u7y8vMPDw8bGxsnJydvb293d3eLi4ubm5uvr6+zs7Pb29gYGBg8PDyAgICcnJzU1NTs7O0ZGRkxMTFRUVFpaWmFhYWVlZWtra21tbXNzc3V1dXh4eIeHh4qKipCQkJSUlJiYmJycnKampqqqqrW1tcTExMrKys7OztPT09fX19jY2Ojo6PPz8/r6+hwcHCUlJTQ0NDg4OEFBQU9PT11dXWBgYGZmZm9vb3Jycnp6en19fYCAgIWFhaurq8DAwMjIyM3NzdHR0dTU1ODg4OTk5Onp6fDw8PX19fv7+xgYGB8fHz8/P0VFRVZWVl5eXmpqanR0dImJiaCgoKenp6+vr9/f3+fn5+3t7fHx8QUFBQgICBYWFioqKlVVVWJiYo+Pj5eXl6ioqLa2trm5udbW1vT09C4uLkdHR1FRUVtbW3x8fJmZmcXFxc/Pz42Njb+/v+/v7/j4+EtLS5qamri4uL29vdDQ0N7e3jIyMpOTk6Ojo7GxscLCwisrK1NTU1lZWW5ubkhISAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/i1NYWRlIGJ5IEtyYXNpbWlyYSBOZWpjaGV2YSAod3d3LmxvYWRpbmZvLm5ldCkAIfkEAAoA/wAsAAAAADAAMAAABv/AnHBILBqPyKRySXyNSC+mdFqEAAARqpaIux0dVwduq2VJLN7iI3ys0cZkosogIJSKODBAXLzJYjJpcTkuCAIBDTRceg5GNDGAcIM5GwKWHkWMkjk2kDI1k0MzCwEBCTBEeg9cM5AzoUQjAwECF5KaQzWQMYKwNhClBStDjEM4fzGKZCxRRioFpRA2OXlsQrqAvUM300gsCgofr0UWhwMjQhgHBxhjfpCgeDMtLtpCOBYG+g4lvS8JAQZoEHKjRg042GZsylHjBYuHMY7gyHBAn4EDE1ZI8tCAhL1tNLoJsQGDxYoVEJHcOPHAooEEGSLmKKjlWIuHKF/ES0IjxAL/lwxCfFRCwwVKlC4UTomxIYFFaVtKomzBi8yKCetMkKnxEIZIMjdKdBi6ZIYyWAthSZGUVu0RGRsyyJ07V0SoGC3yutCrN40KcIADK6hAlgmLE4hNIF58QlmKBYIDV2g75bBixouVydCAAUOGzp87h6AsBQa9vfTy0uuFA86Y1m5jyyaDQwUJ0kpexMC95AWHBw9YkJlBYoSKs1RmhJDgoIGDDIWN1BZBvUSLr0psmKDgoLuDCSZ4G4FhgrqIESZeFMbBAsOD7g0ifJBxT7wkGyxImB+Bgr7EEA8418ADGrhARAodtKCEDNYRQYNt+wl3RAfNOWBBCr3MkMEEFZxg3YwkLXjQQQg7URPDCSNQN8wRMEggwQjICUECBRNQoIIQKYAAQgpCvOABBx2ksNANLpRQQolFuCBTETBYQOMHaYxwwQV2UVMCkPO1MY4WN3wwwQQWNJPDCJ2hI4QMH3TQQXixsVDBlyNIIiUGZuKopgdihmLDBjVisOWYGFxQJ0MhADkCdnGcQCMFHsZyAQZVDhEikCtOIsMFNXKAHZmQ9kFCBxyAEGNUmFYgIREiTDmoEDCICMKfccQAgghpiRDoqtSkcAKsk7RlK51IiAcLCZ2RMJsWRbkw6rHMFhEEACH5BAAKAP8ALAAAAAAwADAAAAf/gDmCg4SFhoeIiYqLhFhRUViMkpOFEwICE5SahDg4hjgSAQJEh16em4ctRklehkQBAaSFXhMPVaiFVwoGPyeFOK+xp4MkOzoCVLiDL7sGEF2cwbKDW0A6Oj0tyoNOBt5PhUQCwoRL1zpI29QO3gxZhNLDLz7XP1rqg1E/3kmDwLDTcBS5tgMcPkG0vCW4MkjaICoBrgmxgcrFO0NWEnib0OofORtDrvGYcqhTIhcOHIjgYgiJtx9RcuBQEiSIEkFPjOnIZMiGFi3DCiVRQFTClFaDsDDg1UQQDhs2kB4x1uPFrC1ZsrL8tCQIUQVBMLgY9uSBFKSGvEABwoSQFy5Z/7NqgVZqygSvRIU0uSeTrqIuSHF00RI3yxa0iLqIePBVwYMoQSX5LKyF4qQsTIR8NYJYEla5XSIzwnHFSBAGtzZ5IcylsyYvJ564lmz5oO3buAttabKEie/fS5bE3LYFi/Hjx7MgtZKyefMhQzCIpvTiipUr2LNjp8vcuXck0ydVt649O90tTIIrUbKEfXsS4T0jn6+ck0x/8XPr34/Dyon8iRimDhZOFFGBC6hwMcUULfhFCRckGFHEBEUwAeAvLUhxwglUYDFbXRgUMeEEGExxYSFaULHhhlUApQgOLSwh4gQTGCECXyYtMowNL6i44hVcTIcDCRXQOEEFTVg1SPAVT0SSyBZVKClIFy1MIYWGUzhpyBM0FpGEFYhxscQRSKTmiTwkiCBFbTJt4d+GCB6CxRFHROGgTFLQiYQ2OVxBAgkM5ZAFFCKIECgnWVBBBZuFvMBXIVkkcQQGIpwiRXBSOFVFoSRsVYgNd0qCwxMYHJHERTlcykSmgkBYaBUnStICEhhgIMUwly7BqiBXFAoFqurY0ASdS3iaam+75mCDFIWe8KEmVJSKQWqD5JpsDi8QCoWUymwxJgZOMGrtL1QUaqc6WShBJreCjItimlEYi4sWUNxqiLu5WCHvNtPhu98iJ/hG0r+MdGFcqAQTHAgAIfkEAAoA/wAsAAAAADAAMAAACP8AcwgcSLCgwYMIEypcSDALHjxZGEqcWNCNAQNvKGokGCjQQTYX2Ry84XHjQT4a5JQk2CakwRtu1OQxWXCPAwVlqhQMBNJAm5UCoxAIcEAnTYF+bipYU4NjSwNsgP5pEIAon6MD6yjYeqdgzzYF5QgIIAAO1oF/0mxFI4NgT5ED/YypuqDtWYFSFmyVMzDQ06gCA7kZO8DO3YGA2mw1c1Xg24FVxIxFA8hkH7sF9TTY+uZGDr8XweYAhKaqGCoH96BG2CeNmihNOTLZugCFQCYOHDARaGcAWdEEZ2QYIMCoQTlmcrep4nlgljM4RQQGBKi5Bt9j+hAEVAcBgO9ngAb/pnMmt4MzcLQPtMOmiviBN6KU4RuYSoMv3wF8UdN8ZxU35jkQAR0zCHRDZQvVUFIfaoCRHwBk3PEeQTVEoUaAa+AxYUI3xEHAg2HE8cdEM8yBRm5mZNCfRDWQkR8Ya6inEUoOoKGHSXZ88UUDVGzI0A0oSGgSIG/UseJhG/k4kZJIolUHHXQ8CeWUGmIFyB9YZvlHDVuWpMcaa6ihRphgihkHkwr9kcWabLbZ3B5hihnnmGowgWZCM7SpZxYIzkDHHHP8CeigUpzFpZaIirfSnU026ihHexi30QyxHZVFHW9k4IdJNeyhhx8IalSDFHC8YWodjA7Uhx6s7iEDozdU/8HEG26YGoekE/3hKat68FGgQoHwMYeptGogxYiBaXRDFp7mwSqoCAUiRQbEZiBCRAPtIQW2CP2hB2aj+cErq+ASZAexcuwBVA11MJFuXytlgQIezBX0x6qscltQFnDEQUWoA1HBhLvq8YECCurNMC8Km+40wx57HNnQrwXJMMfAUngUSBUiiGBUIHs8REWl2wG8pBRMxDEHZhx7XFINVOCBgrpN9iHHwJK2LGkfD6FA8Vk32DFwHSTrTNANMeOhR6oJ6THwuwQZ3VDP+tL0Bx0D33Gk1H3p8VAVJm8kA9ZyVJ0DFR3jmoPCUox81x94rFYQx3WonYMffIR91IRcPxHKUB522DGT3xIBsqbehCceEAAh+QQACgD/ACwAAAAAMAAwAAAI/wBzCBxIsKDBgwgTKlxI8BIVSZcYSpxIkNMjBQo4UNxYkNNBRxgfHdzkkeNBLB3qlBzIqRFGRwY5OVpEyWRBS4kcPJjU0aUCmAXxIDCggKdNgVkQOXDgSFNFn0AHdkFjgKilowOhLHUgpaBPkQTrVDUwB+vATIuWrsHE8itBLAyqOmBrViCVpYfqEITK8lHVH13rCtz0aCmiqzlahhy4olBVRU45YqFbsBKapZA8KlYAdtOaqoRWHKwkaWVBLG7c4IlMcI6DQw8kCQSxaI0IgSV+VI06EBOHHz9EHwShqDikSaYvKYIdSSAnkiU76GaAheAmKIYECAigyLRzKGuKK/9aMwfLyhKOkCPcJOWBXueS0AgKEECAIEbenU+CFL44IyiZOLcJQ5oMmAMWjAxCn3YMSGEgQprg0Yh4azQyRX4KceIBIdvVR4gHAUqECRSMiNcBhgl1IUSHgzBSHUeWeLAGTSZFIoggaKyAIkObSCLFjgkRJgJrghVpJEeaJaakaV1EIgIUUD4JhQgiUIFVS4dspaUDaCBWSSNugNnImGG6AQKQCnWBgA5stulmczl8KWaYYjZy5lFquqmnDnA2KSWUU05p5VFY4rVllxkeyUlJSaJ5ZF2cWEKJowcVaBYmUngwRxYmbXLJJZk8SJEmVMzBQQcclEApQZlk4eolXVD/tMkkdXRgqwd11MSRJp++egmRCGURiQeocjCHJLEmtqpzXVziahagiloQFR5wcKoHUkQ0EBZUUFbpZBVh8iy0yRqEx6kdQIHYQJpIIUIk6yopECaUTFKJtJuI62q5BWECAgiTAJsDJYBymkMWK6xgcBf1UqJtRbxesiOoB2XipAilCUQJHnjoeuAk9krr3LIsSUJlJCHGybHHmtQ7yYtFXjKlCB6r3HFDIFPCL1ab4EGlFERujEcl1lUCcrxYWRIo0pWs3C/Ik3hrUxclUHlhZU5XhEW995qVSdWRPDyQ0EQX1AXIlQjMUSYrGFUQ2Qc5KzKho3Fc9qMTNY0H0ngrCrRJJqH2LXhCAQEAIfkEAAoA/wAsAAAAADAAMAAACP8AcwgcSLCgwYMIEypcSFBVlTyqGEqcSJBTBwdmPFDcWJDTwVIOHHQ4yMkjx4Op6pwySXBDyFIGvZTS8OJkQRikFFXY0xGkA5gFpxj6ZIaPzYGXcioqxaqiS5EFVyn6ZCgUjKMDTShSNGpKQZ9AB5r6RLYO1oGrNGx1FFEgJ58jB6ZyQFYRjbMDq4zaGokgSDMdTFokC8orXoFePGy1cDUHp6dxc7BoQPZNU46p2hZ8YWHrBy8C4SK2QLYBT4MvWLAsmGpDqRSXB3IytXcUC4GR3rzpm8OEoaEaC9L4QPb2wVO633jYs1rVG50m3HopKbAOqE+hUhFkhcqBge8VVrv/NeEouSNTqVie6MBHvOwqFXg7zqPowHcDCRy5d8znQ/I3GqByl2OgLTSdQKloUMh9BoRyQoEIsVJFB/+Vksd+CXFShyEMGlLHKhPRYIIGydWBIUKriHJfAhpoh5kpjtB0EioHHKCIakd5sceFJ7HSASoQHibkkBx5ZKRjSKJ1gglLMumkCcbZ5MUGolRppZWKNAZDBx2UUkqXXX4ZyYkLsQJKAGimKQCaAqAi0JZfesllmPKdtIoha66ZJptu5rDKFCYw2WSgJ+SB1WNXJpqlQmRuZOSjbhEpqUGcpFJTj2/UEdtJNFRxyimaUWTKF1+YkUKjBrGyRySmtJoCR6t8/wLArAGMcilDXrxgwimtnmLCrRPJ5Mmss3pSyoAIcXLJFLzyGgkLsaFK0AuK8EAsAIVEEiRBe/DaaxXI5pAKC+HGpEq0KTTwBbFfKLKtQFX0ekJ626VwwhQupnpJKpesxkodBxAbyn40oIIKH+++cMK9bV3ywgttsZLKxCAWdIkGnXRSRUI0VCycvSeclgMMeeSRryoTX/JuDnucehILC6fg8bgsNJaDF/umUu5ZqgB6gs0js1AzQaukvPJJXuSxcBWbwsCCyRXtC4Mq0i6UysInXHKT0PkKVPTEm9rEir1Qiud0HkALhDK/VaNYhQlT7Oz00AVJzO/RFK3CR9pvPhndNVo0tG0TyXRPKhHNfxue4Sqr4K244QEBACH5BAAKAP8ALAAAAAAwADAAAAj/AHMIHEiwoMGDCBMqXEhwBgsWNBhKnFjwiRo1pihqLMjpIK2LdA7m6rjxoJYRJkgS/KgmZMFctGZhKVkwy4Y3jnBxZOmS4IpYh2TppClwxs03dDQV/Eihp8BVRxw4UKOF6MAUb7KuIMiJliw1TwqikuqgltWBmjxknRVRYFeQBLXIknpk1dmBlBxlNbHyYtiBtKTGUnF3ICdTR45oyAL4a08XaKRuyFVyRtuaGrI+6fgWrMBcGqRGGFoQF6WEM2jRWUFZbFZHp3OYWLKEb44UQB04FUiDjlQXCG3RnjUCl8ocNJbgJJyDk/OBtWI5oFB1YC4TsgwpULABYQoPS2aF/0dVXaCKJzMRcmLhyJZhFm20bzfk4bhhLLXEi6eVwm5z+yKRlMUSQmyngCEUqAAgQblQ8oR44dFByYIJcTKCAwYqgEYtSkm0Sgq0hDcLKhQilMsi8h3iQXkUzWDCLB4wtpEKZRjyBnBEcWJaiRWacktrhQUpZEmcNefWcwJpsoIKS6rApJMqkEbkLItUaWUbbSxyhIwnmWLKCF6G6aNVmjgAy5kFoHkmLO7l0KWXYIp5C5lmrmnnmW0qCeWTT+JIEydUWiloG1sOuRCSziFp6KKGzSDjRppoMAKQJa1CyS23XEYRKoIIgoaCkGKRgi2ksgCpEAGkWsARUirESRYqkP9KqgosSgQTAq+kGkACHmhqECcOyXpLClgAyeNTrWHRRgG6viKECZQShMUtwlLiH2+4XGtQLiMksIRhKqAhiK6CtLGgC6TessIMxzXIAiUzIPRGKwD44GcOmoxgSK4ByLLgKk5mAaAWD7Hg3yozzODfE/QCoIZ9Rh1wwFYIrdJhQZaysEJ6yGWRRVuaHAIAAGCkcJALzG2ExUOUXEyDx5elAMbIQlx81yoas8Diyx8bpsbIrfx1FycurMCCC5TyrCkuPoyMQK00zWA0RAU52jNBS4wMgCN35eKCxsYVpHTVQIzcQ2xEaULJQ9ryBrNBtbgCwCsmn5VLFlB3fDWDFAwUxihBY297bGGB/31oLiMZrnhBAQEAIfkEAAoA/wAsAAAAADAAMAAACP8AcwgcSLCgwYMIEypcSDCTCxeZGEqcWPDOmzd3KGosyOmgnQtv7Bzk1HHjQVW2qJQk+PGCyII3RPxKZbKgql9MmtAsaOeiCIMs2Ci64KfmwEw4mdy5UVDExZcDWUFSNFSV0YEsmGhlQZDTxzc/CdqiusbW1ah2tIqowfIpQVVvqEJidXbgiyZaqbAEKaIkJxFU2QCrO5CTCa1OLg38CvWFBapOVlLMxNbgJSdaTXT06jYHpyZULbw4mMpFwkwlSrhgWpCK1iajc1D59UtvDhVrqEIdWEOEBAlFDwITIcKOrVSSe+cMVnilCaG+rA68QYUNrwa8miBkYYd4cRURBwb/K7FzZDAmtgW60PCA1/UHvyQTvISiO/E7LOh6ln+QdY7LETSA3QNvsMBfVy+Y4J0dJvhxYEKclCCBe+4pYoJ+DLESzB3epTfRDb5gx0sEv0inUSYq2HGHYhux0B4TsdXESSoxahShCv4RpuOOJpHk2Y+S3eBCMEMGY2SR5dUUAkhv+HKRk29owGImKJhggi1YYnklMA8ydAMbCoQp5gJhLmAbSlnacqWatgxm1JdixlmmbUIaeeSdSW70ly++aNCnn3wywSKPhBZaVyYmanQDEyVgaBIrfgTDQmUamaCLLooYuNENqUjKAjDBUVRDLwaUmoAGeUKoigufAsMCRJuG/7BLqaXuEkJ4CdXwAgutBnNJlwfVwJofGiRAqwEPoJAjQanw6ioLqTjKiirLEnTDHbtoJxAnwCiiC60I+HJgs66+UINknFySSrQC3cDKuQJpMEAACdR4gwkN0GrBgaw8pAp/mazLLidvXHqBQHbMK4AFBqniRJhcIcRKtTncoG4q4XHCCwAA8CIQK70EEIAYKhy0K7AIBZzKrwNt3HFJKoghci+OnsXKupdQqjHHHg9kgQABDLDbWar4sfJKO3dMkB8JiLxAokbVILCjSfc8UBNAB8BEXemm4gfUVUuWSQMi68LcVRavvGzYBZVAgAC6lHwWJ5Qd5LLV01kggZuGehZ2d38oE9YLxxH0LdELdthRo+GM5xAQACH5BAAKAP8ALAAAAAAwADAAAAj/AHMIHEiwoMGDCBMqXEiQGAwYxBhKnFgQhTBhKChqLFjsoIklwkwc7LgRYSZgVw7iuSiSowk7l0oWzFRCBEyDJlga5JMBg5IsMgcSMyFCBAqSA3OGLGjjiRufM4IO5GPHJq6CSvEUlISh6zCpA3OhKGrCBsGcS1oKzLSkqxyzYAVeqiqCEkE8ILUmdeMmg924AotJKloi08CVS/TmyKKk6xOkFInBnRmpqCSSaFsWE9E1CVCDl2AkJCZpWBbIAq8UtfP5SqRIKXNQyvBUrVATfD/vxMMb2AzINohGuhoYqaSeSwwPFJxEkfPHB2Gg4I0HBaWIA2FIioqwGIwnkgji/5JTxLmiIpESZroynfcwXLmWM0Q6t4L5IksooeZ4SRJ1FJLEtBEKbtyHwTCTLZQLDMO0d8V+ChUjjHmM2KGcRsRQggIKF1JESQUVOKGbTJmMSFExeAADIWAstjgRSTBCVkwWD2VBIww3cidTMZEoscQSPgL5oxzcEXPFkUgmSdyOGTgwhANQRvkkMAIZmeSVS5ZUDAZRSjnEEKFQmcOMONqIY406yhQJSBe1CRKRLkq0Ypx0DmRDgic+YUJ8QeWSySWX8KmRJAww4IZ+GxVDzCU2ZpGmRLm4ocCkQixhYkLF2DBDo47iOV8koUw6aSgiYJdQLps2egkxJOXiqUE28P95iRxDiBqEIigIWtCiqmYCmTCFiKArQcWYEMoTBFGCQRC2LgFhiTbOMCwuPejQihsCuWoDScL8YAADI4olgahJdDfDJZ4Wo4gO1iKbgxJBBKGEQCV4a0ASqBEjApRZcgQhCjywOwRcRAQQABHZKmKAAQmIWVAWf2lkgxDsBvBVDrkUfDBJVySwsCLDSvVEK+wWAaPGRCCVxMI/lMDiJT+w60OWKBOUBQMLO/CoTBmwq8MSxBb8CsIEPbGwAU7ERckr7BbSYQ4oQ0YMEQsr0O9GwzDdSnpBG0z0WQgYoEBsUkkSiiKeRl1QLhkwQjZYxYRcDBGvHDzSnC0qUrcieNcLmV0JJYjm9+AGBQQAIfkEAAoA/wAsAAAAADAAMAAACP8AcwgcSLCgwYMIEypcSBCQlmWAGEqcWHAFFBErKGqUKEmECEkHA21MCEhZn4OSLoI0mOzElpEFa7RE9rJgx48Gl8lZcqwmzByAJJ04sUIkwZsrB3qpxYTnn58Dlw09scymx4wEW8hhwuQK1IGBVpyQIsnLUY9Jc9R4whWK2a8C/yAbenIgUoLJuMqpCzdHoBZDkdUYuALtQC20mpYwqhHQ24KAWp5oYfQm1kBSuNLScnBLVYQllW1hPLDP1JrKkCFTJrDPTibJDEbesIHzwWVXcisbTNCLUGSfDV5J/IS3wL9yMCiHglBL7ucQCTp/mlBLiRYEl4lAohwDEimkCdb/gPH8SotljyUy/iMliRs3ymkpC2/wj7Lyyv7QXyhpSXcMS5Q1USBatLBCbjBsFMgTGMCXhBTUNYZbC8ZR1AcSSIgQHEw1RLiRJFfs19eIJKoH1nGkBfLHiiy2WOFIJdAioxwy1vhETV4so+OOPPo0UiBLKCLkkERil4MXD/HYI1RAEulkEUaq2OKUL2oUyAm0HHNMllweI4KHJYYp5k+AMBiRgrUkk56VyRjzxRcijHTFA7wkwdpGfRQBBgB8klGlQl4kwcugEBxjG0N/LOEDn3x6ssSaC12pCC9mUCpBCX8qVQsZjAIAhiJ1eZFpb0ZtcQwElFbqhiT7eaHIF4x+/2EMMozJYUwJkB4nCRvMlbYEnYM+cAx9gTzAKAJPnNnaGAF0ksRxgABilAigKPDAhr4ZQSkvTOwnSSedIOGjX0YIEIAnzAXCxKBMCITMAgoosER4NZQggQQJIpSMkTYVEEAAEJxphAEGsCGQFxjEawxWBS3DF0WAQPBvAQwPbIARRiljRrxG5AoTFJ0IIIAbRgVisREEyRHvAieMuMUCIo+Rr0AnSwdBvBGACdMS/wogR0E1E1RLvAo8AZcyB/xrjIcmE4yxeGzEy8vMMElygACelFBQ0xeHJ0m1vPD70woSdGxQ0AQFIoedIwaSKxsEG2xQICKWiEEBBmAw5kRSSQex4d6ADxQQACH5BAAKAP8ALAAAAAAwADAAAAj/AHMIHEiwoMGDCBMqXEhwE5ctmxhKnFgQFx48lShqlEjpYkaDxTYm3JQly8FKFymBpGSFi8iCmihdoVTDYEc8KgtqseMMlcuXAjdVunIFV0iCNz8OLIbCWc+aQAVyIXrl58CkBf04taM0ajFcRCtFHIgSJ8Eaz5ziGRtVYA2ZV7Qg9Yh0q8m2BLMQpaSJLF2pkZwOO6qxGGGCMYn6ufq32DCnkawS5CIXYTEtWvoa1LL3p94ri3Nk4eksZ0MrIEBsQcilZJYtmpcOpbRa4GFcgZ/FzvHVTocOHPAgrKHFdRYubHNwwQUV4ZZhuAhuQdWMA/Bmw0ZuMa6lxmGGhGtA/5vDwXqHSFm+G9S03XV3kZSe/Lb+hFJyhcWIu65NsRgq83MM0xxFDmF2n0RZNNPMM/y9tMluGhWlHl4UWmYbb7xN+NKEhOGCBi8ghhhiIwdS9BhPKDpjhx2RCRSJDjDGKCMzAxYGQiMX4Ihjjjl+ZIeMQOpAI1DFgMCjjhfk2MhHHooo4iGNaCgRNE5tpSJkkhmGYYYVdumlSJrYkUSJCxWDBzRkTomGIIJEAt8iozQT3UZ+XDBIAHgKUWOZzUzgZxt2NKgQF80QIgCeAhAyR5oHOdbIKH5O0AgeezaECigCHCrAIG2E9iBDmxzFhR1tRDqKEldweIEgmQYgyAPQEP/2xAPPkFnMFY6gQpAfcywyAaSjONPoBIgaYsdufoACywEd2BbqUZE8wMsEldl2hRKQTgDChFYccAAHguaQBCyDHKBrDs4sssgTAkHzwCGHzPFdDXjkeNdB0HQ1kBWEwALLBGM5ooACUfLGAS+HoKGvQFuEppEmE/hbyBUDCUzwQLhEAOKYXaLCjL9JEJbEwI0Q9ESI2VG4BS/+gnJvDhYXzPAEh/CyiGRAzeEvLOwSNPLFBOGBMC924IWLAv4+gLPFjhymSSMgRvCySFYgfYBwBcX83RXSprHwRlcswnHWJIMEQgcOt6WlQTE3+iVCHAwc8tsTaTHMMNXSrbdBAQEAIfkEAAoA/wAsAAAAADAAMAAACP8AcwgcSLCgwYMIEypcSPDGqlWcGEqcWDDLlStZKGqUaPEKlo0bOWXKdBDLFSsfDWJRZgNkwRtasmi5ofJkSoKZUOBRscrlQE4xs5AsaNJjQU5X8OBJ0dKnQBtZovYkWPSmQC1KUWR0KpDTlqhaIg6s2lCFUis0uT6NmmWqQLJjleLZohYn2LQ54OawkUIKnmBiNaYIdhBoVLpvL95UpjSFW4Krhh5U0amTBi0GV7FNu8WSJcRbdOKxZPCGshIlHv8MBaC1rhBNu37VonpgFp0q8ObglAUPFCjOrBy8oehLawBfGqQIbGOLboOZrmAemEkFcGfOoBAeXqvQcQA8FJH/psj8Si3s2FGEVZiplI/vPko9Z2hJCvYQUKRYCrzQkqIAxyVQm0KcqIBeLVfERlEKDXzxhTMgbVELFCpIBpINIbyhIEWWbKUWf3UlxMmIu0VEYogLYaGIKKKsyOKLkICo0RVS1FgjHjbiMZUUAfTo44+gDDhRLaUU2UGRpRzZQUol/OhkAKBsSF4tRxqJZAdLvuUiixO8KAok802ElI1k3uiWiSWSKCOKbLaJ0A0ldBDmQgUC5pQViugSjRQgWaJBBiF4SBEWGiRgQDTRTCMlgRm+8YYGUljIXghBGHBoNEGEMGdCVpTiqKMdqLDoQDfgMQ2iiCaQwU2bkipWJlJo//DpG07YaRAnGegZjQG6KGJFYLVQo8KauwXTAR4EZRFCBqQ4moEUMnLCCKoNlKAbFtOAkmlXuw2EBzWKvDFdV8E0IesbUCCkDBmFOCFpDk2wGwSfOUDxBinp5mAFuIo4AyJfkEAyrkFWKHNQMA2QAQopaXUgjTQx5nCDE4oowojBBn0F0g1vFFJIA1cMVIoZ0pQyFiMVN9GqRiiA4nETgZUijRkmDwRFxWsIV1cmiigciqAdkByxQJlkULEGQmrkjMug5Cvyw0MLlMIaFdPrVBbSeKyIpA6bAUlBNpRSMSmCgqRMKIWAgoJBI5dsUDBrUMOIVS4po0EpMsoMMYicQB7hRNk+nVhQ11/f6uZBTZDcweETbWGFFQMzLvlAAQEAIfkEAAoA/wAsAAAAADAAMAAACP8AcwgcSLCgwYMIEypcSLDYjRvFGEqcWPBPqlR/KGpseOOgRYwbN6oINaFjxYsZDWpJZTLkwGQEALiqZfBjSoJd9kyqBMjlwD2CAAAAclPgR0wGYUyatKelTyRCAXA4CZIgJp2TkPocqAWBUB8wCNpsWGmppYhbBz5pJZQC2hxjuS7d0yUtQUDVhAZINjBujhtYw4bMU+lgMh5Ch/SEi3JgqqWTFhe8URfhpB8/OGgdWIyC0FZPBHbBhKnyH8ipDBZLlUyF5IYTAgR4tcDO60oxWzVCiKlsJadw89gaXlh1GwKyAxCAoOItByC2EwKCUbRLpVvDbd2yhPCGiWqvkg//ciOYssYbMJJlv5V1IaZmhMLPJvTh7UQtKtarSGVfIQw3g4T3SjWVTVTMHtklYwlwDBWjAgQECELTRn/ccgtdWwFihwYMSpQKJv25FKJdCkX01ogkGpSKG9RQ04aLL7Y4S4cTWaLCjTjimMdithjg44+D/CjNaxvdIsKRSCJphxYC9fjjkz6GQiRFxSST5JVLCpRKIy3G2KKMNEpkY4457thQDvahmOKabCp0g5FhJnTgWVtV0sgCDKgQkhbNNGPCZhTxWc0nhLYRp2qozMLBLB8kU+BCgNQCAaGESmOHmgjtccwsis7yRFMlqkDBApRWw0FqaGIq0FtdJPNBp7PU/8LfQcU0wwClC7QxCUEmILFrQjA8oedAmJjQzKIcNMOXahpQGoEtr2lBgTShTGjiQCog0QgHRRVjiQiccnALQpVIM8QTRQl0zBDSSDNuDrZwwIEJAu2hbSP0TpbHMccAWtAe3BlkSQTscqguBRN8sKoIjbihAaoVMbnRDRu0C0FxORwzQcJopaKBG26IcChFI7GrsFoTUHCyQCY00ggSe6TYhRvsyiKxuhsfI9YsbjTSzJQh1WKuNKgUdAzCKwukgsuNLLuVFhOY68ajGW+c9F8f9KxZWpbIMkQowxKkMccFWYKEGxvc7BMMsxwT4thXo2lCliQWM6LGKtPaJkIipA8c2t4T/bHHHv4CbjhBAQEAOw==)}.sr-rd-content-center{text-align:center;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;-webkit-box-orient:vertical}.sr-rd-content-center-small{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}.sr-rd-content-center-small img{margin:0;padding:0;border:0;box-shadow:none}img.simpread-img-broken{cursor:pointer}.sr-rd-content-nobeautify{margin:0;padding:0;border:0;box-shadow:0 0 0}sr-rd-mult{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;margin:0 0 16px;padding:16px 0 24px;width:100%;background-color:#fff;border-radius:4px;box-shadow:0 1px 2px 0 rgba(60,64,67,.3),0 2px 6px 2px rgba(60,64,67,.15)}sr-rd-mult:hover{-webkit-transition:all .45s 0ms;transition:all .45s 0ms;box-shadow:1px 1px 8px rgba(0,0,0,.16)}sr-rd-mult sr-rd-mult-content{padding:0 16px;overflow:auto}sr-rd-mult sr-rd-mult-avatar,sr-rd-mult sr-rd-mult-content{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}sr-rd-mult sr-rd-mult-avatar{-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin:0 15px}sr-rd-mult sr-rd-mult-avatar span{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;max-width:75px;overflow:hidden;text-overflow:ellipsis;text-align:left;font-size:16px;font-size:1rem}sr-rd-mult sr-rd-mult-avatar img{margin-bottom:0;max-width:50px;max-height:50px;width:50px;height:50px;border-radius:50%}sr-rd-mult sr-rd-mult-content img{max-width:80%}sr-rd-mult sr-rd-mult-avatar .sr-rd-content-center{margin:0}sr-page{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;width:100%}</style>
+                        <style type="text/css">sr-rd-theme-github{display:none}sr-rd-content h1,sr-rd-content h2,sr-rd-content h3,sr-rd-content h4,sr-rd-content h5,sr-rd-content h6{position:relative;margin-top:1em;margin-bottom:1pc;font-weight:700;line-height:1.4;text-align:left;color:#363636}sr-rd-content h1{padding-bottom:.3em;font-size:57.6px;font-size:3.6rem;line-height:1.2}sr-rd-content h2{padding-bottom:.3em;font-size:44.8px;font-size:2.8rem;line-height:1.225}sr-rd-content h3{font-size:38.4px;font-size:2.4rem;line-height:1.43}sr-rd-content h4{font-size:32px;font-size:2rem}sr-rd-content h5,sr-rd-content h6{font-size:25.6px;font-size:1.6rem}sr-rd-content h6{color:#777}sr-rd-content ol,sr-rd-content ul{list-style-type:disc;padding:0;padding-left:2em}sr-rd-content ol ol,sr-rd-content ul ol{list-style-type:lower-roman}sr-rd-content ol ol ol,sr-rd-content ol ul ol,sr-rd-content ul ol ol,sr-rd-content ul ul ol{list-style-type:lower-alpha}sr-rd-content table{width:100%;overflow:auto;word-break:normal;word-break:keep-all}sr-rd-content table th{font-weight:700}sr-rd-content table td,sr-rd-content table th{padding:6px 13px;border:1px solid #ddd}sr-rd-content table tr{background-color:#fff;border-top:1px solid #ccc}sr-rd-content table tr:nth-child(2n){background-color:#f8f8f8}sr-rd-content sr-blockquote{border-left:4px solid #ddd}.simpread-theme-root{background-color:#fff;color:#333}sr-rd-title{font-family:PT Sans,SF UI Display,\.PingFang SC,PingFang SC,Neue Haas Grotesk Text Pro,Arial Nova,Segoe UI,Microsoft YaHei,Microsoft JhengHei,Helvetica Neue,Source Han Sans SC,Noto Sans CJK SC,Source Han Sans CN,Noto Sans SC,Source Han Sans TC,Noto Sans CJK TC,Hiragino Sans GB,sans-serif;font-size:54.4px;font-size:3.4rem;font-weight:700;line-height:1.3}sr-rd-desc{position:relative;margin:0;margin-bottom:30px;padding:25px;padding-left:56px;font-size:28.8px;font-size:1.8rem;color:#777;background-color:rgba(0,0,0,.05);box-sizing:border-box}sr-rd-desc:before{content:"\201C";position:absolute;top:-28px;left:16px;font-size:80px;font-family:Arial;color:rgba(0,0,0,.15)}sr-rd-content,sr-rd-content *,sr-rd-content div,sr-rd-content p{color:#363636;font-weight:400;line-height:1.8}sr-rd-content b *,sr-rd-content strong,sr-rd-content strong * sr-rd-content b{-webkit-animation:none 0s ease 0s 1 normal none running;animation:none 0s ease 0s 1 normal none running;-webkit-backface-visibility:visible;backface-visibility:visible;background:transparent none repeat 0 0/auto auto padding-box border-box scroll;border:medium none currentColor;border-collapse:separate;-o-border-image:none;border-image:none;border-radius:0;border-spacing:0;bottom:auto;box-shadow:none;box-sizing:content-box;caption-side:top;clear:none;clip:auto;color:#000;-webkit-columns:auto;-moz-columns:auto;columns:auto;-webkit-column-count:auto;-moz-column-count:auto;column-count:auto;-webkit-column-fill:balance;-moz-column-fill:balance;column-fill:balance;-webkit-column-gap:normal;-moz-column-gap:normal;column-gap:normal;-webkit-column-rule:medium none currentColor;-moz-column-rule:medium none currentColor;column-rule:medium none currentColor;-webkit-column-span:1;-moz-column-span:1;column-span:1;-webkit-column-width:auto;-moz-column-width:auto;column-width:auto;content:normal;counter-increment:none;counter-reset:none;cursor:auto;direction:ltr;display:inline;empty-cells:show;float:none;font-family:serif;font-size:medium;font-style:normal;font-variant:normal;font-weight:400;font-stretch:normal;line-height:normal;height:auto;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;left:auto;letter-spacing:normal;list-style:disc outside none;margin:0;max-height:none;max-width:none;min-height:0;min-width:0;opacity:1;orphans:2;outline:medium none invert;overflow:visible;overflow-x:visible;overflow-y:visible;padding:0;page-break-after:auto;page-break-before:auto;page-break-inside:auto;-webkit-perspective:none;perspective:none;-webkit-perspective-origin:50% 50%;perspective-origin:50% 50%;position:static;right:auto;-moz-tab-size:8;-o-tab-size:8;tab-size:8;table-layout:auto;text-align:left;text-align-last:auto;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;top:auto;-webkit-transform:none;transform:none;-webkit-transform-origin:50% 50% 0;transform-origin:50% 50% 0;-webkit-transform-style:flat;transform-style:flat;-webkit-transition:none 0s ease 0s;transition:none 0s ease 0s;unicode-bidi:normal;vertical-align:baseline;visibility:visible;white-space:normal;widows:2;width:auto;word-spacing:normal;z-index:auto;all:initial}sr-rd-content a,sr-rd-content a:link{color:#4183c4;text-decoration:none}sr-rd-content a:active,sr-rd-content a:focus,sr-rd-content a:hover{color:#4183c4;text-decoration:underline}sr-rd-content pre{background-color:#f7f7f7;border-radius:3px}sr-rd-content li code,sr-rd-content p code{background-color:rgba(0,0,0,.04);border-radius:3px}.simpread-multi-root{background:#f8f9fa}</style>
+                        <style type="text/css"></style>
+                        <style type="text/css">@media (pointer:coarse){sr-read{margin:20px 5%!important;min-width:0!important;max-width:90%!important}sr-rd-title{margin-top:0;font-size:2.7rem}sr-rd-content sr-blockquote,sr-rd-desc{margin:10 0!important;padding:0 0 0 10px!important;width:90%;font-size:1.8rem;font-style:normal;line-height:1.7;text-align:justify}sr-rd-content{font-size:1.75rem;font-weight:300}sr-rd-content figure{margin:0;padding:0;text-align:center}sr-rd-content a,sr-rd-content a:link,sr-rd-content li code,sr-rd-content p code{font-size:inherit}sr-rd-footer{margin-top:20px}sr-blockquote,sr-blockquote *{margin:5px!important;padding:5px!important}sr-rd-content h1,sr-rd-content h2,sr-rd-content h3,sr-rd-content h4,sr-rd-content h5,sr-rd-content h6,sr-rd-title{font-family:PingFang SC,Verdana,Helvetica Neue,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif;color:#000;font-weight:100;line-height:1.35}sr-rd-content-h1,sr-rd-content-h2,sr-rd-content-h3,sr-rd-content-h4,sr-rd-content-h5,sr-rd-content-h6,sr-rd-content h1,sr-rd-content h2,sr-rd-content h3,sr-rd-content h4,sr-rd-content h5,sr-rd-content h6{margin-top:1.2em;margin-bottom:.6em;line-height:1.35}sr-rd-content-h1,sr-rd-content h1{font-size:1.8em}sr-rd-content-h2,sr-rd-content h2{font-size:1.6em}sr-rd-content-h3,sr-rd-content h3{font-size:1.4em}sr-rd-content-h4,sr-rd-content-h5,sr-rd-content-h6,sr-rd-content h4,sr-rd-content h5,sr-rd-content h6{font-size:1.2em}sr-rd-content-ul,sr-rd-content ul{margin-left:1.3em!important;list-style:disc}sr-rd-content-ol,sr-rd-content ol{list-style:decimal;margin-left:1.9em!important}sr-rd-content-ol ol,sr-rd-content-ol ul,sr-rd-content-ul ol,sr-rd-content-ul ul,sr-rd-content li ol,sr-rd-content li ul{margin-bottom:.8em;margin-left:2em!important}sr-rd-content img{margin:0;padding:0;border:0;max-width:100%!important;height:auto;box-shadow:0 20px 20px -10px rgba(0,0,0,.1)}sr-rd-mult{min-width:0;background-color:#fff;box-shadow:0 1px 6px rgba(32,33,36,.28);border-radius:8px}sr-rd-mult sr-rd-mult-avatar div{margin:0}sr-rd-mult sr-rd-mult-avatar .sr-rd-content-center-small{margin:7px 0!important}sr-rd-mult sr-rd-mult-avatar span{display:block}sr-rd-mult sr-rd-mult-content{padding-left:0}@media only screen and (max-device-width:1024px){.simpread-theme-root,html.simpread-theme-root{font-size:80%!important}sr-rd-mult sr-rd-mult-avatar img{width:50px;height:50px;min-width:50px;min-height:50px}toc-bg toc{width:10px!important}toc-bg:hover toc{width:auto!important}}@media only screen and (max-device-width:414px){.simpread-theme-root,html.simpread-theme-root{font-size:70%!important}sr-rd-mult sr-rd-mult-avatar img{width:30px;height:30px;min-width:30px;min-height:30px}}@media only screen and (max-device-width:320px){.simpread-theme-root,html.simpread-theme-root{font-size:90%!important}sr-rd-content p{margin-bottom:.5em}}}</style>
+                        <style type="text/css">.simpread-font {
+    overflow: initial!important;
+    margin: 0!important;
+}
+sr-deeplink {
+    display: flex;
+    justify-content: center;
+    margin: 16px auto;
+    padding: 12px 12px 9px 12px;
+    border: 3px solid #F6F6F6;
+}
+sr-deeplink a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}sr-rd-content *, sr-rd-content p, sr-rd-content div {}sr-rd-content pre code, sr-rd-content pre code * {}sr-rd-desc {}sr-rd-content pre {}sr-rd-title {}</style>
+                        <style type="text/css"></style>
+                        <style type="text/css"></style>
+                        <style type="text/css"></style>
+                        <style type="text/css"></style>
+                        <style type="text/css">sr-rd-content *, sr-rd-content p, sr-rd-content div {
+        font-size: 15px;
+    }
+
+    .annote-perview, .annote-perview * {
+        color: rgb(85, 85, 85);
+        font-weight: 400;
+        line-height: 1.8;
+    }</style>
+                        
+                        
+                        <script>setTimeout(()=>{const e=location.hash.replace("#id=","");let t,a=!1;const n=t=>{for(let n of t){let t;if((t=e.length>6?n.getAttribute("data-id"):n.getAttribute("data-idx"))==e){n.scrollIntoView({behavior:"smooth",block:"start",inline:"nearest"}),a=!0;break}}};e&&(0==(t=document.getElementsByClassName("sr-unread-card")).length&&(t=document.getElementsByTagName("sr-annote")),n(t),a||n(t=document.getElementsByClassName("sr-annote")))},500);</script>
+                        <script>document.addEventListener("DOMContentLoaded",function(){if("localhost"==location.hostname){const t=document.getElementsByTagName("img");for(let o of t){const t=o.src;t.startsWith("http")&&(o.src=location.origin+"/proxy?url="+t)}}},!1);</script>
+                        <style>toc a {font-size: inherit!important;font-weight: 300!important;}</style><script>setTimeout(()=>{const max=document.getElementsByTagName('sr-annote-note-tip').length;for(let i=0;i<max;i++){const target=document.getElementsByTagName('sr-annote-note-tip')[i],value=target.dataset.value;value&&(target.innerText=value)}},1000);</script><title>简悦 | linux 内核网络协议栈 -- 监控和调优：接收数据 --1</title>
+                    </head>
+                    <body>
+                        <sr-read style='undefined'>
+                            <sr-rd-title>linux 内核网络协议栈 -- 监控和调优：接收数据 --1</sr-rd-title>
+                    <sr-rd-desc style="margin: 0;padding-top: 0;padding-bottom: 0;font-style: normal;font-size: 18px;">Monitoring and Tuning the Linux Networking Stack: Receiving Data。如果能看懂英文，建议阅读原文，或者和本文对照看。 这篇文章写的是 “Linux networking stack”，这里的 ”stack“ 指的不仅仅是内核协议 栈…</sr-rd-desc>
+                    <sr-rd-content><p data-first-child="" data-pid="U-ptcDMz">Monitoring and Tuning the Linux Networking Stack: Receiving Data。如果能看懂英文，建议阅读原文，或者和本文对照看。</p><p data-pid="iHi8AJSE">这篇文章写的是 “Linux networking stack”，这里的 ”stack“ 指的不仅仅是内核协议 栈，而是包括内核协议栈在内的、从数据包到达物理网卡到最终被用户态程序收起的整个路 径。所以文章有三方面，交织在一起，看起来非常累（但是很过瘾）：</p><p data-pid="LmxDqsCM">原理及代码实现：网络各层，包括驱动、硬中断、软中断、内核协议栈、socket 等等<br>监控：对代码中的重要计数进行监控，一般在 /proc 或 /sys 下面有对应输出<br>调优：修改网络配置参数<br>本文的另一个特色是，几乎所有讨论的内核代码，都在相应的地方给出了 github 上的链接 ，具体到行。</p><p data-pid="dj7Ys1H3">网络栈非常复杂，原文太长又没有任何章节号，看起来非常累。因此本文翻译时添加了适当 的章节号，以期按图索骥。</p><h2 id="sr-toc-0">2020 更新</h2><p data-pid="i6GvY4w5">基于 Prometheus+Grafana 监控网络栈：<a href="https://link.zhihu.com/?target=http%3A//arthurchiao.art/blog/monitoring-network-stack/" target="_blank" rel="nofollow noreferrer" data-za-detail-view-id="1043">Monitoring Network Stack</a>。</p><h2 id="sr-toc-1">一、监控和调优网络栈：常规建议</h2><p data-pid="J73j-T7b">网络栈很复杂，没有适用于所有场景通用的方式。如果网络的性能和健康（ performance and health）对你或你的业务非常关键，那你别无选择，只能投入大量的时 间、精力以及资金去深入理解系统的各个部分是如何交互的。</p><p data-pid="_v5LlWhA">理想情况下，你应该考虑在网络栈的各层测量丢包状况，这样就可以缩小范围，确定哪个组 件需要调优。</p><p data-pid="Jwu3dcSM">然而，这也是一些网络管理员开始走偏的地方：他们想当然地认为通过一波 sysctl 或 /proc 操作可以解决问题，并且这些配置适用于所有场景。在某些场景下，可能确实 如此；但是，整个系统是如此细微而精巧地交织在一起，如果想做有意义的监控和调优 ，你必须得努力在更深层次搞清系统是如何工作的。否则，你虽然可以使用默认配置，并在 相当长的时间内运行良好，但终会到某个时间点，你不得不（投时间、精力和资金研究这些 配置，然后）做优化。</p><p data-pid="f6G2XUPR">本文中的一些示例配置仅为了方便理解（效果），并不作为任何特定配置或默认配置的建议 。在做任何配置改动之前，你应该有一个能够对系统进行监控的框架，以查看变更是否带来 预期的效果。</p><p data-pid="EW9Zi6sL">对远程连接上的机器进行网络变更是相当危险的，机器很可能失联。另外，不要在生产环境 直接调整这些配置；如果可能的话，在新机器上改配置，然后将机器灰度上线到生产。</p><h2 id="sr-toc-2">二、收包过程俯瞰</h2><p data-pid="7VxMMTax">本文将拿 Intel I350 网卡的 igb 驱动作为参考，网卡的 data sheet 这里可以下 载 PDF （警告：文件很大）。</p><p data-pid="zry7tdA4">从比较高的层次看，一个数据包从被网卡接收到进入 socket 接收队列的整个过程如下：</p><ol><li data-pid="YfX4QJxR">加载网卡驱动，初始化</li><li data-pid="3yOxA5Oo">包从外部网络进入网卡</li><li data-pid="GQ6dx9yb">网卡（通过 DMA）将包 copy 到内核内存中的 ring buffer</li><li data-pid="gbnccM6w"> 产生硬件中断，通知系统收到了一个包</li><li data-pid="3lltmgMJ">驱动调用 NAPI，如果轮询（poll）还没开始，就开始轮询</li><li data-pid="g2ksIj9g"> ksoftirqd 进程调用 NAPI 的 poll 函数从 ring buffer 收包（poll 函数是网卡 驱动在初始化阶段注册的；每个 CPU 上都运行着一个 ksoftirqd 进程，在系统启动期 间就注册了） ring buffer 里包对应的内存区域解除映射（unmapped）</li><li data-pid="bNxqse5k">（通过 DMA 进入）内存的数据包以 skb 的形式被送至更上层处理</li><li data-pid="ebZoVg04">如果 packet steering 功能打开，或者网卡有多队列，网卡收到的包会被分发到多个 CPU</li><li data-pid="JAgJf10W"> 包从队列进入协议层</li><li data-pid="LYSB2kYB">协议层处理包</li><li data-pid="dITC4Dbx">包从协议层进入相应 socket 的接收队列</li></ol><p data-pid="OKK9_EO4">接下来会详细介绍这个过程。</p><p data-pid="RuXdUSmW">协议层分析我们将会关注 IP 和 UDP 层，其他协议层可参考这个过程。</p><h2 id="sr-toc-3">三、网络设备驱动</h2><p data-pid="ZY80uCao">本文基于 Linux 3.13。</p><p data-pid="39NXcOyI">准确地理解 Linux 内核的收包过程是一件非常有挑战性的事情。我们需要仔细研究网卡驱 动的工作原理，才能对网络栈的相应部分有更加清晰的理解。</p><p data-pid="EqniVdd4">本文将拿 ibg 驱动作为例子，它是常见的 Intel I350 网卡的驱动。先来看网卡 驱动是如何工作的。</p><h2 id="sr-toc-4">3.1 初始化</h2><p data-pid="-dwNGWZz">驱动会使用 module_init 向内核注册一个初始化函数，当驱动被加载时，内核会调用这个函数。</p><p data-pid="O_zkT-rw">这个初始化函数（igb_init_module）的代码见 drivers/net/ethernet/intel/igb/igb_main.c.</p><p data-pid="U_5c7B9-">过程非常简单直接：</p><div><pre>/**
+ *  igb_init_module - Driver Registration Routine
+ *
+ *  igb_init_module is the first routine called when the driver is
+ *  loaded. All it does is register with the PCI subsystem.
+ **/
+static int __init igb_init_module(void)
+{
+  int ret;
+  pr_info("%s - version %s\n", igb_driver_string, igb_driver_version);
+  pr_info("%s\n", igb_copyright);
+
+  /* ... */
+
+  ret = pci_register_driver(&amp;igb_driver);
+  return ret;
+}
+
+module_init(igb_init_module);
+</pre></div><p data-pid="7bOvI_jY">初始化的大部分工作在 pci_register_driver 里面完成，下面来细看。</p><h3 id="sr-toc-5">3.1.1 PCI 初始化</h3><p data-pid="fcG8hXTp">Intel I350 网卡是 PCI express 设备。 PCI 设备通过 PCI Configuration Space 里面的寄存器识别自己。</p><p data-pid="2T5DW1T7">当设备驱动编译时，MODULE_DEVICE_TABLE 宏（定义在 include/module.h） 会导出一个 PCI 设备 ID 列表（a table of PCI device IDs），驱动据此识别它可以 控制的设备，内核也会依据这个列表对不同设备加载相应驱动。</p><p data-pid="JUR-HYOv">igb 驱动的设备表和 PCI 设备 ID 分别见： drivers/net/ethernet/intel/igb/igb_main.c 和 drivers/net/ethernet/intel/igb/e1000_hw.h。</p><div><pre>static DEFINE_PCI_DEVICE_TABLE(igb_pci_tbl) = {
+  { PCI_VDEVICE(INTEL, E1000_DEV_ID_I354_BACKPLANE_1GBPS) },
+  { PCI_VDEVICE(INTEL, E1000_DEV_ID_I354_SGMII) },
+  { PCI_VDEVICE(INTEL, E1000_DEV_ID_I354_BACKPLANE_2_5GBPS) },
+  { PCI_VDEVICE(INTEL, E1000_DEV_ID_I211_COPPER), board_82575 },
+  { PCI_VDEVICE(INTEL, E1000_DEV_ID_I210_COPPER), board_82575 },
+  { PCI_VDEVICE(INTEL, E1000_DEV_ID_I210_FIBER), board_82575 },
+  { PCI_VDEVICE(INTEL, E1000_DEV_ID_I210_SERDES), board_82575 },
+  { PCI_VDEVICE(INTEL, E1000_DEV_ID_I210_SGMII), board_82575 },
+  { PCI_VDEVICE(INTEL, E1000_DEV_ID_I210_COPPER_FLASHLESS), board_82575 },
+  { PCI_VDEVICE(INTEL, E1000_DEV_ID_I210_SERDES_FLASHLESS), board_82575 },
+  /* ... */
+};
+MODULE_DEVICE_TABLE(pci, igb_pci_tbl);
+</pre></div><p data-pid="nbQfmg8O">前面提到，驱动初始化的时候会调用 pci_register_driver，这个函数会将该驱动的各 种回调方法注册到一个 struct pci_driver 变量，drivers/net/ethernet/intel/igb/igb_main.c：</p><div><pre>static struct pci_driver igb_driver = {
+  .name     = igb_driver_name,
+  .id_table = igb_pci_tbl,
+  .probe    = igb_probe,
+  .remove   = igb_remove,
+  /* ... */
+};
+</pre></div><h2 id="sr-toc-6">3.2 网络设备初始化</h2><p data-pid="9X1zcaVR">通过 PCI ID 识别设备后，内核就会为它选择合适的驱动。每个 PCI 驱动注册了一个 probe() 方法，内核会对每个设备依次调用其驱动的 probe 方法，一旦找到一个合适的 驱动，就不会再为这个设备尝试其他驱动。</p><p data-pid="7L1CKpfo">很多驱动都需要大量代码来使得设备 ready，具体做的事情各有差异。典型的过程：</p><ol><li data-pid="CTVFNPeL">启用 PCI 设备</li><li data-pid="IWLB7mV6">请求（requesting）内存范围和 IO 端口</li><li data-pid="Cm5Q-04V">设置 DMA 掩码</li><li data-pid="sg0jP4vj">注册设备驱动支持的 ethtool 方法（后面介绍）</li><li data-pid="UVXWmGt_">注册所需的 watchdog（例如，e1000e 有一个检测设备是否僵死的 watchdog）</li><li data-pid="cseVsqFp">其他和具体设备相关的事情，例如一些 workaround，或者特定硬件的非常规处理</li><li data-pid="fa-3cp1p">创建、初始化和注册一个 struct net_device_ops 类型变量，这个变量包含了用于设 备相关的回调函数，例如打开设备、发送数据到网络、设置 MAC 地址等</li><li data-pid="aWaYd7r3">创建、初始化和注册一个更高层的 struct net_device 类型变量（一个变量就代表了 一个设备）</li></ol><p data-pid="5eXIVRPI">我们来简单看下 igb 驱动的 igb_probe 包含哪些过程。下面的代码来自 igb_probe，drivers/net/ethernet/intel/igb/igb_main.c：</p><div><pre>err = pci_enable_device_mem(pdev);
+/* ... */
+err = dma_set_mask_and_coherent(&amp;pdev-&gt;dev, DMA_BIT_MASK(64));
+/* ... */
+err = pci_request_selected_regions(pdev, pci_select_bars(pdev,
+           IORESOURCE_MEM),
+           igb_driver_name);
+
+pci_enable_pcie_error_reporting(pdev);
+
+pci_set_master(pdev);
+pci_save_state(pdev);
+</pre></div><h3 id="sr-toc-7">更多 PCI 驱动信息</h3><p data-pid="INyLFRK9">详细的 PCI 驱动讨论不在本文范围，如果想进一步了解，推荐如下材料： 分享， <a href="https://link.zhihu.com/?target=https%3A//github.com/torvalds/linux/blob/v3.13/Documentation/PCI/pci.txt" target="_blank" rel="nofollow noreferrer">wiki， Linux Kernel Documentation: PCI</a>。</p><h2 id="sr-toc-8">3.3 网络设备启动</h2><p data-pid="J0pGc-um">igb_probe 做了很多重要的设备初始化工作。除了 PCI 相关的，还有如下一些通用网络 功能和网络设备相关的工作：</p><ol><li data-pid="UKEaM_VT">注册 struct net_device_ops 变量</li><li data-pid="PyhvqK4L">注册 ethtool 相关的方法</li><li data-pid="KlVXVALz">从网卡获取默认 MAC 地址 设置</li><li data-pid="imz-Gj-T"> net_device 特性标记</li></ol><p data-pid="CJpudbUm">我们逐一看下这些过程，后面会用到。</p><h3 id="sr-toc-9">3.3.1 struct net_device_ops</h3><p data-pid="fL3y16rd">网络设备相关的操作函数都注册到这个类型的变量中。igb_main.c：</p><div><pre>static const struct net_device_ops igb_netdev_ops = {
+  .ndo_open               = igb_open,
+  .ndo_stop               = igb_close,
+  .ndo_start_xmit         = igb_xmit_frame,
+  .ndo_get_stats64        = igb_get_stats64,
+  .ndo_set_rx_mode        = igb_set_rx_mode,
+  .ndo_set_mac_address    = igb_set_mac,
+  .ndo_change_mtu         = igb_change_mtu,
+  .ndo_do_ioctl           = igb_ioctl,
+  /* ... */
+</pre></div><p data-pid="HzEYP_X9">这个变量会在 igb_probe() 中赋给 struct net_device 中的 netdev_ops 字段：</p><div><pre>static int igb_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
+{
+  ...
+  netdev-&gt;netdev_ops = &amp;igb_netdev_ops;
+}
+</pre></div><h3 id="sr-toc-10">3.3.2 ethtool 函数注册</h3><p data-pid="Vbc9_i2o">ethtool 是一个命令行工 具，可以查看和修改网络设备的一些配置，常用于收集网卡统计数据。在 Ubuntu 上，可以 通过 apt-get install ethtool 安装。</p><p data-pid="1kvWmUP1">ethtool 通过 ioctl 和设备驱 动通信。内核实现了一个通用 ethtool 接口，网卡驱动实现这些接口，就可以被 ethtool 调用。当 ethtool 发起一个系统调用之后，内核会找到对应操作的回调函数 。回调实现了各种简单或复杂的函数，简单的如改变一个 flag 值，复杂的包括调整网卡硬 件如何运行。</p><p data-pid="qjhGtZTU">相关实现见：igb_ethtool.c。</p><h3 id="sr-toc-11">3.3.3 软中断（IRQ）</h3><p data-pid="bu-AhzYv">当一个数据帧通过 DMA 写到 RAM（内存）后，网卡是如何通知其他系统这个包可以被处理 了呢？</p><p data-pid="EMQXwMzn">传统的方式是，网卡会产生一个硬件中断（IRQ），通知数据包到了。有三种常见的硬中 断类型：</p><ul><li data-pid="fH59gJyP">MSI-X</li><li data-pid="8o42jN5e">MSI</li><li data-pid="TimdmZsN">legacy IRQ</li></ul><p data-pid="KTTs6uHR">稍后详细介绍到。</p><p data-pid="oKBWSd0m">先来思考这样一个问题：如果有大量的数据包到达，就会产生大量的硬件中断。CPU 忙于处 理硬件中断的时候，可用于处理其他任务的时间就会减少。</p><p data-pid="d7dU3ajP">NAPI（New API）是一种新的机制，可以减少产生的硬件中断的数量（但不能完全消除硬中断 ）。</p><h3 id="sr-toc-12">3.3.4 NAPI</h3><p data-pid="C6u3rLTq"><b>NAPI</b></p><p data-pid="8ZBP8ioC">NAPI 接收数据包的方式和传统方式不同，它允许设备驱动注册一个 poll 方法，然后调 用这个方法完成收包。</p><p data-pid="iCd1tdju">NAPI 的使用方式：</p><ol><li data-pid="T4mXR2ox">驱动打开 NAPI 功能，默认处于未工作状态（没有在收包）</li><li data-pid="Nm0L76VZ">数据包到达，网卡通过 DMA 写到内存</li><li data-pid="vgA5pZ2o">网卡触发一个硬中断，中断处理函数开始执行</li><li data-pid="IKKtgdP-">软中断（softirq，稍后介绍），唤醒 NAPI 子系统。这会触发在一个单独的线程里，调用驱动注册的 poll 方法收包</li><li data-pid="pViYi6Ti">驱动禁止网卡产生新的硬件中断。这样做是为了 NAPI 能够在收包的时候不会被新的中 断打扰</li><li data-pid="8lTO87bb">一旦没有包需要收了，NAPI 关闭，网卡的硬中断重新开启</li><li data-pid="aO0C1mhf">转步骤 2</li></ol><p data-pid="aLXR2MOh">和传统方式相比，NAPI 一次中断会接收多个包，因此可以减少硬件中断的数量。</p><p data-pid="JvDYqmnd">poll 方法是通过调用 netif_napi_add 注册到 NAPI 的，同时还可以指定权重 weight，大部分驱动都 hardcode 为 64。后面会进一步解释这个 weight 以及 hardcode 64。</p><p data-pid="huwPTEqE">通常来说，驱动在初始化的时候注册 NAPI poll 方法。</p><h3 id="sr-toc-13">3.3.5 igb 驱动的 NAPI 初始化</h3><p data-pid="u95xul6G">igb 驱动的初始化过程是一个很长的调用链：</p><ol><li data-pid="M3JACDNp">igb_probe -&gt; igb_sw_init</li><li data-pid="n5muZDaH">igb_sw_init -&gt; igb_init_interrupt_scheme</li><li data-pid="vA2T_aIU">igb_init_interrupt_scheme -&gt; igb_alloc_q_vectors</li><li data-pid="z8NHl2Fg">igb_alloc_q_vectors -&gt; igb_alloc_q_vector</li><li data-pid="qE4EOlDi">igb_alloc_q_vector -&gt; netif_napi_add</li></ol><p data-pid="TNwN16J8">从较高的层面来看，这个调用过程会做以下事情：</p><ol><li data-pid="XvDWTWYM">如果支持 MSI-X，调用 pci_enable_msix 打开它</li><li data-pid="m33Zbkuh">计算和初始化一些配置，包括网卡收发队列的数量</li><li data-pid="nnfgrTNP">调用 igb_alloc_q_vector 创建每个发送和接收队列</li><li data-pid="MA9ILzFU"> igb_alloc_q_vector 会进一步调用 netif_napi_add 注册 poll 方法到 NAPI 变量</li></ol><p data-pid="mge2UpGB">我们来看下 igb_alloc_q_vector 是如何注册 poll 方法和私有数据的： drivers/net/ethernet/intel/igb/igb_main.c:</p><div><pre>static int igb_alloc_q_vector(struct igb_adapter *adapter,
+                              int v_count, int v_idx,
+                              int txr_count, int txr_idx,
+                              int rxr_count, int rxr_idx)
+{
+  /* ... */
+
+  /* allocate q_vector and rings */
+  q_vector = kzalloc(size, GFP_KERNEL);
+  if (!q_vector)
+          return -ENOMEM;
+
+  /* initialize NAPI */
+  netif_napi_add(adapter-&gt;netdev, &amp;q_vector-&gt;napi, igb_poll, 64);
+
+  /* ... */
+</pre></div><p data-pid="Q-MVwl3_">q_vector 是新分配的队列，igb_poll 是 poll 方法，当它收包的时候，会通过 这个接收队列找到关联的 NAPI 变量（q_vector-&gt;napi）。</p><p data-pid="IKak5Py6">这里很重要，后面我们介绍从驱动到网络协议栈的 flow（根据 IP 头信息做哈希，哈希相 同的属于同一个 flow）时会看到。</p><h2 id="sr-toc-14">3.4 启用网卡 (Bring A Network Device Up)</h2><p data-pid="qWVKdUPy">回忆前面我们提到的 structure net_device_ops 变量，它包含网卡启用、发包、设置 mac 地址等回调函数（函数指针）。</p><p data-pid="ZZKSiIhZ">当启用一个网卡时（例如，通过 ifconfig eth0 up），net_device_ops 的 ndo_open 方法会被调用。它通常会做以下事情：</p><ol><li data-pid="8bjILRLF">分配 RX、TX 队列内存</li><li data-pid="7zX2Li_9">打开 NAPI 功能</li><li data-pid="kZzIXxnx">注册中断处理函数</li><li data-pid="Bsqi0NPf">打开（enable）硬中断</li><li data-pid="x5fJ4j2n">其他</li></ol><p data-pid="FkJFpZ8R">igb 驱动中，这个方法对应的是 igb_open 函数。</p><h3 id="sr-toc-15">3.4.1 准备从网络接收数据</h3><p data-pid="EAmcQs4C">今天的大部分网卡都使用 DMA 将数据直接写到内存，接下来操作系统可以直接从里 面读取。实现这一目的所使用的数据结构是 ring buffer（环形缓冲区）。</p><p data-pid="OI4d7eej">要实现这一功能，设备驱动必须和操作系统合作，预留（reserve）出一段内存来给网卡 使用。预留成功后，网卡知道了这块内存的地址，接下来收到的包就会放到这里，进而被 操作系统取走。</p><p data-pid="SRiRaNNh">由于这块内存区域是有限的，如果数据包的速率非常快，单个 CPU 来不及取走这些包，新 来的包就会被丢弃。这时候，Receive Side Scaling（RSS，接收端扩展）或者多队列（ multiqueue）一类的技术可能就会排上用场。</p><p data-pid="A4_dSb_J">一些网卡有能力将接收到的包写到多个不同的内存区域，每个区域都是独立的接收队列。这 样操作系统就可以利用多个 CPU（硬件层面）并行处理收到的包。只有部分网卡支持这个功 能。</p><p data-pid="aIC84uFT">Intel I350 网卡支持多队列，我们可以在 igb 的驱动里看出来。igb 驱动启用的时候 ，最开始做的事情之一就是调用 igb_setup_all_rx_resources 函数。这个函数会对每个 RX 队列调用 igb_setup_rx_resources, 里面会管理 DMA 的内存.</p><p data-pid="rwfDi_JX">如果对其原理感兴趣，可以进一步查看 Linux kernel’s DMA API HOWTO 。</p><p data-pid="AC1vOOnF">RX 队列的数量和大小可以通过 ethtool 进行配置，调整这两个参数会对收包或者丢包产生可见影响。</p><p data-pid="5Sm5xHLZ">网卡通过对 packet 头（例如源地址、目的地址、端口等）做哈希来决定将 packet 放到 哪个 RX 队列。只有很少的网卡支持调整哈希算法。如果支持的话，那你可以根据算法将特定 的 flow 发到特定的队列，甚至可以做到在硬件层面直接将某些包丢弃。</p><p data-pid="2rltpk5Y">一些网卡支持调整 RX 队列的权重，你可以有意地将更多的流量发到指定的 queue。</p><p data-pid="WjukywxP">后面会介绍如何对这些参数进行调优。</p><h3 id="sr-toc-16">3.4.2 Enable NAPI</h3><p data-pid="33EPRBQ8">前面看到了驱动如何注册 NAPI poll 方法，但是，一般直到网卡被启用之后，NAPI 才被启用。</p><p data-pid="Ciid7xjf">启用 NAPI 很简单，调用 napi_enable 函数就行，这个函数会设置 NAPI 变量（struct napi_struct）中一个表示是否启用的标志位。前面说到，NAPI 启用后并不是立即开始工 作（而是等硬中断触发）。</p><p data-pid="GCLKr58v">对于 igb，驱动初始化或者通过 ethtool 修改 queue 数量或大小的时候，会启用每个 q_vector 的 NAPI 变量。 drivers/net/ethernet/intel/igb/igb_main.c:</p><div><pre>for (i = 0; i &lt; adapter-&gt;num_q_vectors; i++)
+  napi_enable(&amp;(adapter-&gt;q_vector[i]-&gt;napi));
+</pre></div><h3 id="sr-toc-17">3.4.3 注册中断处理函数</h3><p data-pid="3Z6SSVLu">启用 NAPI 之后，下一步就是注册中断处理函数。设备有多种方式触发一个中断：</p><ul><li data-pid="5pHf-L2U">MSI-X</li><li data-pid="iklAV5ej">MSI</li><li data-pid="mZ5jp6on">legacy interrupts</li></ul><p data-pid="0ul_QOSh">设备驱动的实现也因此而异。</p><p data-pid="1Qh6P5J2">驱动必须判断出设备支持哪种中断方式，然后注册相应的中断处理函数，这些函数在中断发 生的时候会被执行。</p><p data-pid="v7cWK8a5">一些驱动，例如 igb，会试图为每种中断类型注册一个中断处理函数，如果注册失败，就 尝试下一种（没测试过的）类型。</p><p data-pid="LkvDODdA">MSI-X 中断是比较推荐的方式，尤其是对于支持多队列的网卡。因为每个 RX 队列有独 立的 MSI-X 中断，因此可以被不同的 CPU 处理（通过 irqbalance 方式，或者修改 /proc/irq/IRQ_NUMBER/smp_affinity）。我们后面会看到，处理中断的 CPU 也是随后处 理这个包的 CPU。这样的话，从网卡硬件中断的层面就可以设置让收到的包被不同的 CPU 处理。</p><p data-pid="VS4q-viS">如果不支持 MSI-X，那 MSI 相比于传统中断方式仍然有一些优势，驱动仍然会优先考虑它。 这个 wiki 介绍了更多 关于 MSI 和 MSI-X 的信息。</p><p data-pid="2W_nVncG">在 igb 驱动中，函数 igb_msix_ring, igb_intr_msi, igb_intr 分别是 MSI-X, MSI, 和传统中断方式的中断处理函数。</p><p data-pid="ZiZJrjgi">这段代码显式了驱动是如何尝试各种中断类型的， drivers/net/ethernet/intel/igb/igb_main.c:</p><div><pre>static int igb_request_irq(struct igb_adapter *adapter)
+{
+  struct net_device *netdev = adapter-&gt;netdev;
+  struct pci_dev *pdev = adapter-&gt;pdev;
+  int err = 0;
+
+  if (adapter-&gt;msix_entries) {
+    err = igb_request_msix(adapter);
+    if (!err)
+      goto request_done;
+    /* fall back to MSI */
+    /* ... */
+  }
+
+  /* ... */
+
+  if (adapter-&gt;flags &amp; IGB_FLAG_HAS_MSI) {
+    err = request_irq(pdev-&gt;irq, igb_intr_msi, 0,
+          netdev-&gt;name, adapter);
+    if (!err)
+      goto request_done;
+
+    /* fall back to legacy interrupts */
+    /* ... */
+  }
+
+  err = request_irq(pdev-&gt;irq, igb_intr, IRQF_SHARED,
+        netdev-&gt;name, adapter);
+
+  if (err)
+    dev_err(&amp;pdev-&gt;dev, "Error %d getting interrupt\n", err);
+
+request_done:
+  return err;
+}
+</pre></div><p data-pid="w20aRuED">这就是 igb 驱动注册中断处理函数的过程，这个函数在一个包到达网卡触发一个硬 件中断时就会被执行。</p><h3 id="sr-toc-18">3.4.4 Enable Interrupts</h3><p data-pid="Hj3M5nXV">到这里，几乎所有的准备工作都就绪了。唯一剩下的就是打开硬中断，等待数据包进来。 打开硬中断的方式因硬件而异，igb 驱动是在 __igb_open 里调用辅助函数 igb_irq_enable 完成的。</p><p data-pid="2V2qTcio">中断通过写寄存器的方式打开：</p><div><pre>static void igb_irq_enable(struct igb_adapter *adapter)
+{
+
+  /* ... */
+    wr32(E1000_IMS, IMS_ENABLE_MASK | E1000_IMS_DRSTA);
+    wr32(E1000_IAM, IMS_ENABLE_MASK | E1000_IMS_DRSTA);
+  /* ... */
+}
+</pre></div><p data-pid="o7kXts3r">现在，网卡已经启用了。驱动可能还会做一些额外的事情，例如启动定时器，工作队列（ work queue），或者其他硬件相关的设置。这些工作做完后，网卡就可以收包了。</p><p data-pid="hJd6zsa5">接下来看一下如何监控和调优网卡。</p><h2 id="sr-toc-19">3.5 网卡监控</h2><p data-pid="HBr-cZjd">监控网络设备有几种不同的方式，每种方式的监控粒度（granularity）和复杂度不同。我 们先从最粗的粒度开始，逐步细化。</p><h3 id="sr-toc-20">3.5.1 Using ethtool -S</h3><p data-pid="b64cV99a">ethtool -S 可以查看网卡统计信息（例如丢弃的包数量）：</p><div><pre>$ sudo ethtool -S eth0
+NIC statistics:
+     rx_packets: 597028087
+     tx_packets: 5924278060
+     rx_bytes: 112643393747
+     tx_bytes: 990080156714
+     rx_broadcast: 96
+     tx_broadcast: 116
+     rx_multicast: 20294528
+     ....
+</pre></div><p data-pid="9IdPdBr_">监控这些数据比较困难。因为用命令行获取很容易，但是以上字段并没有一个统一的标准。 不同的驱动，甚至同一驱动的不同版本可能字段都会有差异。</p><p data-pid="Vlzp9he6">你可以先粗略的查看 “drop”, “buffer”, “miss” 等字样。然后，在驱动的源码里找到对应的 更新这些字段的地方，这可能是在软件层面更新的，也有可能是在硬件层面通过寄存器更新 的。如果是通过硬件寄存器的方式，你就得查看网卡的 data sheet（说明书），搞清楚这个 寄存器代表什么。ethtoool 给出的这些字段名，有一些是有误导性的（misleading）。</p><h3 id="sr-toc-21">3.5.2 Using sysfs</h3><p data-pid="vKmFI6AE">sysfs 也提供了统计信息，但相比于网卡层的统计，要更上层一些。</p><p data-pid="8Wu8opTS">例如，获取 eth0 的接收端 drop 的数量：</p><div><pre>$ cat /sys/class/net/eth0/statistics/rx_dropped
+2
+</pre></div><p data-pid="Qf2DCgki">不同类型的统计分别位于 /sys/class/net//statistics/ 下面的不同文件，包括 collisions, rx_dropped, rx_errors, rx_missed_errors 等等。</p><p data-pid="LzIvT0tD">不幸的是，每种类型代表什么意思，是由驱动来决定的，因此也是由驱动决定何时以及在哪 里更新这些计数的。你可能会发现一些驱动将一些特定类型的错误归类为 drop，而另外 一些驱动可能将它们归类为 miss。</p><p data-pid="sZwPJWBH">这些值至关重要，因此你需要查看对应的网卡驱动，搞清楚它们真正代表什么。</p><h3 id="sr-toc-22">3.5.3 Using /proc/net/dev</h3><p data-pid="JC-zaAt6">/proc/net/dev 提供了更高一层的网卡统计。</p><div><pre>$ cat /proc/net/dev
+Inter-|   Receive                                                |  Transmit
+ face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+  eth0: 110346752214 597737500    0    2    0     0          0  20963860 990024805984 6066582604    0    0    0     0       0          0
+    lo: 428349463836 1579868535    0    0    0     0          0         0 428349463836 1579868535    0    0    0     0       0          0
+</pre></div><p data-pid="KcYy_5G9">这个文件里显式的统计只是 sysfs 里面的一个子集，但适合作为一个常规的统计参考。</p><p data-pid="Eat-9Nby">前面的警告（caveat）也适用于此：如果这些数据对你非常重要，那你必须得查看内核源码 、驱动源码和驱动手册，搞清楚每个字段真正代表什么意思，计数是如何以及何时被更新的。</p><h2 id="sr-toc-23">3.6 网卡调优</h2><h3 id="sr-toc-24">3.6.1 查看 RX 队列数量</h3><p data-pid="WgA7CwNl">如果网卡及其驱动支持 RSS / 多队列，那你可以会调整 RX queue（也叫 RX channel）的数量。 这可以用 ethtool 完成。</p><p data-pid="FG5JL1Fz">查看 RX queue 数量：</p><div><pre>$ sudo ethtool -l eth0
+Channel parameters for eth0:
+Pre-set maximums:
+RX:   0
+TX:   0
+Other:    0
+Combined: 8
+Current hardware settings:
+RX:   0
+TX:   0
+Other:    0
+Combined: 4
+</pre></div><p data-pid="J5TwO8eT">这里可以看到允许的最大值（网卡及驱动限制），以及当前设置的值。</p><p data-pid="4_80Jp1E">注意：不是所有网卡驱动都支持这个操作。如果你的网卡不支持，会看到如下类似的错误：</p><div><pre>$ sudo ethtool -l eth0
+Channel parameters for eth0:
+Cannot get device channel parameters
+: Operation not supported
+</pre></div><p data-pid="YNSnJ_af">这意味着驱动没有实现 ethtool 的 get_channels 方法。可能的原因包括：该网卡不支 持调整 RX queue 数量，不支持 RSS/multiqueue，或者驱动没有更新来支持此功能。</p><h3 id="sr-toc-25">3.6.2 调整 RX queues</h3><p data-pid="7nLtsGag">ethtool -L 可以修改 RX queue 数量。</p><p data-pid="exE3k-iE">注意：一些网卡和驱动只支持 combined queue，这种模式下，RX queue 和 TX queue 是一 对一绑定的，上面的例子我们看到的就是这种。</p><p data-pid="r34l_0Qb">设置 combined 类型网卡的收发队列为 8 个：</p><div><pre>$ sudo ethtool -L eth0 combined 8
+</pre></div><p data-pid="IHs2Glpc">如果你的网卡支持独立的 RX 和 TX 队列数量，那你可以只修改 RX queue 数量：</p><div><pre>$ sudo ethtool -L eth0 rx 8
+</pre></div><p data-pid="SB4sOGx9">注意：对于大部分驱动，修改以上配置会使网卡先 down 再 up，因此会造成丢包。请酌情 使用。</p><h3 id="sr-toc-26">3.6.3 调整 RX queue 的大小</h3><p data-pid="VrcLOoAD">一些网卡和驱动也支持修改 RX queue 的大小。底层是如何工作的，随硬件而异，但幸运的是 ，ethtool 提供了一个通用的接口来做这件事情。增加 RX queue 的大小可以在流量很大的时 候缓解丢包问题，但是，只调整这个还不够，软件层面仍然可能会丢包，因此还需要其他的 一些调优才能彻底的缓解或解决丢包问题。</p><p data-pid="yTG5Oipl">ethtool -g 可以查看 queue 的大小。</p><div><pre>$ sudo ethtool -g eth0
+Ring parameters for eth0:
+Pre-set maximums:
+RX:   4096
+RX Mini:  0
+RX Jumbo: 0
+TX:   4096
+Current hardware settings:
+RX:   512
+RX Mini:  0
+RX Jumbo: 0
+TX:   512
+</pre></div><p data-pid="PzOgwge0">以上显式网卡支持最多 4096 个接收和发送 descriptor（描述符，简单理解，存放的是指 向包的指针），但是现在只用到了 512 个。</p><p data-pid="WIey7zPO">用 ethtool -G 修改 queue 大小：</p><div><pre>$ sudo ethtool -G eth0 rx 4096
+</pre></div><p data-pid="suE2rCVb">注意：对于大部分驱动，修改以上配置会使网卡先 down 再 up，因此会造成丢包。请酌情 使用。</p><h3 id="sr-toc-27">3.6.4 调整 RX queue 的权重（weight）</h3><p data-pid="o3DIpzQu">一些网卡支持给不同的 queue 设置不同的权重，以此分发不同数量的网卡包到不同的队列。</p><p data-pid="RnIRDHZN">如果你的网卡支持以下功能，那你可以使用：</p><ol><li data-pid="o4K0Vx_n">网卡支持 flow indirection（flow 重定向，flow 是什么前面提到过）</li><li data-pid="pG0MmHUP">网卡驱动实现了 get_rxfh_indir_size 和 get_rxfh_indir 方法</li><li data-pid="L521zyp-">使用的 ethtool 版本足够新，支持 -x 和 -X 参数来设置 indirection table</li></ol><p data-pid="kHQn1LFj">ethtool -x 检查 flow indirection 设置：</p><div><pre>$ sudo ethtool -x eth0
+RX flow hash indirection table for eth3 with 2 RX ring(s):
+0: 0 1 0 1 0 1 0 1
+8: 0 1 0 1 0 1 0 1
+16: 0 1 0 1 0 1 0 1
+24: 0 1 0 1 0 1 0 1
+</pre></div><p data-pid="5eMpxy0I">第一列是哈希值索引，是该行的第一个哈希值；冒号后面的是每个哈希值对于的 queue，例 如，第一行分别是哈希值 0，1，2，3，4，5，6，7，对应的 packet 应该分别被放到 RX queue 0，1，0，1，0，1，0，1。</p><p data-pid="LcBzho6z">例子：在前两个 RX queue 之间均匀的分发（接收到的包）：</p><div><pre>$ sudo ethtool -X eth0 equal 2
+</pre></div><p data-pid="eVmNVcQd">例子：用 ethtool -X 设置自定义权重：</p><div><pre>$ sudo ethtool -X eth0 weight 6 2
+</pre></div><p data-pid="ijxf-V_Y">以上命令分别给 rx queue 0 和 rx queue 1 不同的权重：6 和 2，因此 queue 0 接收到的数量更 多。注意 queue 一般是和 CPU 绑定的，因此这也意味着相应的 CPU 也会花更多的时间片在收包 上。</p><p data-pid="jodj2fSw">一些网卡还支持修改计算 hash 时使用哪些字段。</p><h3 id="sr-toc-28">3.6.5 调整 RX 哈希字段 for network flows</h3><p data-pid="xF7HfJm9">可以用 ethtool 调整 RSS 计算哈希时所使用的字段。</p><p data-pid="NkOrMhaZ">例子：查看 UDP RX flow 哈希所使用的字段：</p><div><pre>$ sudo ethtool -n eth0 rx-flow-hash udp4
+UDP over IPV4 flows use these fields for computing Hash flow key:
+IP SA
+IP DA
+</pre></div><p data-pid="CWM8VUgf">可以看到只用到了源 IP（SA：Source Address）和目的 IP。</p><p data-pid="3Vn2MHwT">我们接下来修改一下，加入源端口和目的端口：</p><div><pre>$ sudo ethtool -N eth0 rx-flow-hash udp4 sdfn
+</pre></div><p data-pid="P0xtmtJE">sdfn 的具体含义解释起来有点麻烦，请查看 ethtool 的帮助（man page）。</p><p data-pid="dRjxsUMU">调整 hash 所用字段是有用的，而 ntuple 过滤对于更加细粒度的 flow control 更加有用。</p><h3 id="sr-toc-29">3.6.6 ntuple filtering for steering network flows</h3><p data-pid="9ngzruhM">一些网卡支持 “ntuple filtering” 特性。该特性允许用户（通过 ethtool ）指定一些参数来 在硬件上过滤收到的包，然后将其直接放到特定的 RX queue。例如，用户可以指定到特定目 端口的 TCP 包放到 RX queue 1。</p><p data-pid="ut4f8YIx">Intel 的网卡上这个特性叫 Intel Ethernet Flow Director，其他厂商可能也有他们的名字 ，这些都是出于市场宣传原因，底层原理是类似的。</p><p data-pid="E1rNw64a">我们后面会看到，ntuple filtering 是一个叫 Accelerated Receive Flow Steering (aRFS) 功能的核心部分之一，后者使得 ntuple filtering 的使用更加方便。</p><p data-pid="OMdK1kpn">这个特性适用的场景：最大化数据本地性（data locality），以增加 CPU 处理网络数据时的 缓存命中率。例如，考虑运行在 80 口的 web 服务器：</p><ol><li data-pid="NoTQsmxx">webserver 进程运行在 80 口，并绑定到 CPU 2</li><li data-pid="rvHWxNVA"> 和某个 RX queue 关联的硬中断绑定到 CPU 2</li><li data-pid="OuXLJGwr"> 目的端口是 80 的 TCP 流量通过 ntuple filtering 绑定到 CPU 2</li><li data-pid="LXMnxv6_"> 接下来所有到 80 口的流量，从数据包进来到数据到达用户程序的整个过程，都由 CPU 2 处理</li><li data-pid="bIArJ5ZG">仔细监控系统的缓存命中率、网络栈的延迟等信息，以验证以上配置是否生效</li></ol><p data-pid="vhF5adXu">检查 ntuple filtering 特性是否打开：</p><div><pre>$ sudo ethtool -k eth0
+Offload parameters for eth0:
+...
+ntuple-filters: off
+receive-hashing: on
+</pre></div><p data-pid="yJ32QcNp">可以看到，上面的 ntuple 是关闭的。</p><p data-pid="nkOHtyUd">打开：</p><div><pre>$ sudo ethtool -K eth0 ntuple on
+</pre></div><p data-pid="FFZ2HuJn">打开 ntuple filtering 功能，并确认打开之后，可以用 ethtool -u 查看当前的 ntuple rules：</p><div><pre>$ sudo ethtool -u eth0
+40 RX rings available
+Total 0 rules
+</pre></div><p data-pid="dHrH5dvO">可以看到当前没有 rules。</p><p data-pid="CbPKTbph">我们来加一条：目的端口是 80 的放到 RX queue 2：</p><div><pre>$ sudo ethtool -U eth0 flow-type tcp4 dst-port 80 action 2
+</pre></div><p data-pid="J8De9AZa">也可以用 ntuple filtering 在硬件层面直接 drop 某些 flow 的包。当特定 IP 过来的流 量太大时，这种功能可能会派上用场。更多关于 ntuple 的信息，参考 ethtool man page。</p><p data-pid="MI6CVU8k">ethtool -S 的输出统计里，Intel 的网卡有 fdir_match 和 fdir_miss 两项， 是和 ntuple filtering 相关的。关于具体的、详细的统计计数，需要查看相应网卡的设备驱 动和 data sheet。</p><h2 id="sr-toc-30">四、软中断（SoftIRQ）</h2><p data-pid="rQPByuDw">在查看网络栈之前，让我们先开个小差，看下内核里一个叫 SoftIRQ 的东西。</p><h2 id="sr-toc-31">4.1 软中断是什么</h2><p data-pid="IjjtEnvm">内核的软中断系统是一种在硬中断处理上下文（驱动中）之外执行代码的机制。硬中 断处理函数（handler）执行时，会屏蔽部分或全部（新的）硬中断。中断被屏蔽的时间 越长，丢失事件的可能性也就越大。所以，所有耗时的操作都应该从硬中断处理逻辑中剥 离出来，硬中断因此能尽可能快地执行，然后再重新打开硬中断。</p><p data-pid="bzAgJUdL">内核中也有其他机制将耗时操作转移出去，不过对于网络栈，我们接下来只看软中断这种方 式。</p><p data-pid="Dg-gY6g-">可以把软中断系统想象成一系列内核线程（每个 CPU 一个），这些线程执行针对不同 事件注册的处理函数（handler）。如果你用过 top 命令，可能会注意到 ksoftirqd/0 这个内核线程，其表示这个软中断线程跑在 CPU 0 上。</p><p data-pid="XGvNds-g">内核子系统（比如网络）能通过 open_softirq() 注册软中断处理函数。接下来会看到 网络系统是如何注册它的处理函数的。</p><p data-pid="SdaPXxZh">现在先来学习一下软中断是如何工作的。</p><h2 id="sr-toc-32">4.2 ksoftirqd</h2><p data-pid="rSguD36A">软中断对分担硬中断的工作量至关重要，因此软中断线程在内核启动的很早阶段就 spawn 出来了。</p><p data-pid="DTad5SRw">kernel/softirq.c 展示了 ksoftirqd 系统是如何初始化的：</p><div><pre>static struct smp_hotplug_thread softirq_threads = {
+      .store              = &amp;ksoftirqd,
+      .thread_should_run  = ksoftirqd_should_run,
+      .thread_fn          = run_ksoftirqd,
+      .thread_comm        = "ksoftirqd/%u",
+};
+
+static __init int spawn_ksoftirqd(void)
+{
+      register_cpu_notifier(&amp;cpu_nfb);
+
+      BUG_ON(smpboot_register_percpu_thread(&amp;softirq_threads));
+
+      return 0;
+}
+early_initcall(spawn_ksoftirqd);
+</pre></div><p data-pid="nqAQGXgI">看到注册了两个回调函数: ksoftirqd_should_run 和 run_ksoftirqd。这两个函数都会从 kernel/smpboot.c 里调用，作为事件处理循环的一部分。</p><p data-pid="htpkezou">kernel/smpboot.c 里面的代码首先调用 ksoftirqd_should_run 判断是否有 pending 的软 中断，如果有，就执行 run_ksoftirqd，后者做一些 bookeeping 工作，然后调用 __do_softirq。</p><h2 id="sr-toc-33">4.3 __do_softirq</h2><p data-pid="bZZZMy6B">__do_softirq 做的几件事情：</p><ul><li data-pid="fY61Z8_3">判断哪个 softirq 被 pending</li><li data-pid="s8N14EGk"> 计算 softirq 时间，用于统计</li><li data-pid="8cXsIyca">更新 softirq 执行相关的统计数据</li><li data-pid="sCEPy1vt">执行 pending softirq 的处理函数</li></ul><p data-pid="YKmgyZLf">查看 CPU 利用率时，si 字段对应的就是 softirq，度量（从硬中断转移过来的）软 中断的 CPU 使用量。</p><h2 id="sr-toc-34">4.4 监控</h2><p data-pid="LN5V71yd">软中断的信息可以从 /proc/softirqs 读取：</p><div><pre>$ cat /proc/softirqs
+                    CPU0       CPU1       CPU2       CPU3
+          HI:          0          0          0          0
+       TIMER: 2831512516 1337085411 1103326083 1423923272
+      NET_TX:   15774435     779806     733217     749512
+      NET_RX: 1671622615 1257853535 2088429526 2674732223
+       BLOCK: 1800253852    1466177    1791366     634534
+BLOCK_IOPOLL:          0          0          0          0
+     TASKLET:         25          0          0          0
+       SCHED: 2642378225 1711756029  629040543  682215771
+     HRTIMER:    2547911    2046898    1558136    1521176
+         RCU: 2056528783 4231862865 3545088730  844379888
+</pre></div><p data-pid="iDcits_9">监控这些数据可以得到软中断的执行频率信息。</p><p data-pid="e7_k3xNM">例如，NET_RX 一行显示的是软中断在 CPU 间的分布。如果分布非常不均匀，那某一列的 值就会远大于其他列，这预示着下面要介绍的 Receive Packet Steering / Receive Flow Steering 可能会派上用场。但也要注意：不要太相信这个数值，NET_RX 太高并不一定都 是网卡触发的，下面会看到其他地方也有可能触发之。</p><p data-pid="9uPSQlUh">调整其他网络配置时，可以留意下这个指标的变动。</p><p data-pid="3POZq4uG">现在，让我们进入网络栈部分，跟踪一个包是如何被接收的。</p><h2 id="sr-toc-35">五、Linux 网络设备子系统</h2><p data-pid="Jknw_TOW">我们已经知道了网络驱动和软中断是如何工作的，接下来看 Linux 网络设备子系统是如何 初始化的。然后我们就可以从一个包到达网卡开始跟踪它的整个路径。</p><h2 id="sr-toc-36">5.1 网络设备子系统的初始化</h2><p data-pid="Kk7FaG6r">网络设备（netdev）的初始化在 net_dev_init，里面有些东西很有意思。</p><h3 id="sr-toc-37">5.1.1 struct softnet_data 变量初始化</h3><p data-pid="Hywjxfu4">net_dev_init 为每个 CPU 创建一个 struct softnet_data 变量。这些变量包含一些 指向重要信息的指针：</p><ul><li data-pid="klLzB5hj">需要注册到这个 CPU 的 NAPI 变量列表</li><li data-pid="IWgJX3uu">数据处理 backlog</li><li data-pid="Mt32X01s"> 处理权重</li><li data-pid="sG73bEFa"> receive offload 变量列表<br>receive packet steering 设置</li></ul><p data-pid="b6fyIA3Q">接下来随着逐步进入网络栈，我们会一一查看这些功能。</p><h3 id="sr-toc-38">5.1.2 SoftIRQ Handler 初始化</h3><p data-pid="0pPLzjH7">net_dev_init 分别为接收和发送数据注册了一个软中断处理函数。</p><div><pre>static int __init net_dev_init(void)
+{
+  /* ... */
+
+  open_softirq(NET_TX_SOFTIRQ, net_tx_action);
+  open_softirq(NET_RX_SOFTIRQ, net_rx_action);
+
+ /* ... */
+}
+</pre></div><p data-pid="j2KMKNA7">后面会看到驱动的中断处理函数是如何触发 net_rx_action 这个为 NET_RX_SOFTIRQ 软中断注册的处理函数的。</p><h2 id="sr-toc-39">5.2 数据来了</h2><p data-pid="SjiHZYPZ">终于，网络数据来了！</p><p data-pid="tkKQvLs-">如果 RX 队列有足够的描述符（descriptors），包会通过 DMA 写到 RAM。设备然后发 起对应于它的中断（或者在 MSI-X 的场景，中断和包达到的 RX 队列绑定）。</p><h3 id="sr-toc-40">5.2.1 中断处理函数</h3><p data-pid="7z0HINSg">一般来说，中断处理函数应该将尽可能多的处理逻辑移出（到软中断），这至关重要，因为 发起一个中断后，其他的中断就会被屏蔽。</p><p data-pid="wyCiS5j6">我们来看一下 MSI-X 中断处理函数的代码，它展示了中断处理函数是如何尽量简单的。</p><p data-pid="Y6owsq3_">igb_main.c：</p><div><pre>static irqreturn_t igb_msix_ring(int irq, void *data)
+{
+  struct igb_q_vector *q_vector = data;
+
+  /* Write the ITR value calculated from the previous interrupt. */
+  igb_write_itr(q_vector);
+
+  napi_schedule(&amp;q_vector-&gt;napi);
+
+  return IRQ_HANDLED;
+}
+</pre></div><p data-pid="eQy7ji21">这个中断处理函数非常简短，只做了 2 个很快的操作就返回了。</p><p data-pid="F_0ReA1J">首先，它调用 igb_write_itr 更新一个硬件寄存器。对这个例子，这个寄存器是记录硬件 中断频率的。</p><p data-pid="NJraB4WA">这个寄存器和一个叫 “Interrupt Throttling”（也叫 “Interrupt Coalescing”）的硬件 特性相关，这个特性可以平滑传送到 CPU 的中断数量。我们接下来会看到，ethtool 是 怎么样提供了一个机制用于调整 IRQ 触发频率的。</p><p data-pid="YHlSqs4X">第二，触发 napi_schedule，如果 NAPI 的处理循环还没开始的话，这会唤醒它。注意， 这个处理循环是在软中断中执行的，而不是硬中断。</p><p data-pid="ckeZFmTo">这段代码展示了硬中断尽量简短为何如此重要；为我们接下来理解多核 CPU 的接收逻辑很有 帮助。</p><h3 id="sr-toc-41">5.2.2 NAPI 和 napi_schedule</h3><p data-pid="SplN-kIt">接下来看从硬件中断中调用的 napi_schedule 是如何工作的。</p><p data-pid="FCQ_10TP">注意，NAPI 存在的意义是无需硬件中断通知就可以接收网络数据。前面提到， NAPI 的轮询循环（poll loop）是受硬件中断触发而跑起来的。换句话说，NAPI 功能启用了 ，但是默认是没有工作的，直到第一个包到达的时候，网卡触发的一个硬件将它唤醒。后面 会看到，也还有其他的情况，NAPI 功能也会被关闭，直到下一个硬中断再次将它唤起。</p><p data-pid="0KDMqjHk">napi_schedule 只是一个简单的封装，内层调用 __napi_schedule。 net/core/dev.c:</p><div><pre>/**
+ * __napi_schedule - schedule for receive
+ * @n: entry to schedule
+ *
+ * The entry's receive function will be scheduled to run
+ */
+void __napi_schedule(struct napi_struct *n)
+{
+  unsigned long flags;
+
+  local_irq_save(flags);
+  ____napi_schedule(&amp;__get_cpu_var(softnet_data), n);
+  local_irq_restore(flags);
+}
+EXPORT_SYMBOL(__napi_schedule);
+</pre></div><p data-pid="VoNHym6L">__get_cpu_var 用于获取属于这个 CPU 的 structure softnet_data 变量。</p><p data-pid="-qg0uXnd">____napi_schedule, net/core/dev.c:</p><div><pre>/* Called with irq disabled */
+static inline void ____napi_schedule(struct softnet_data *sd,
+                                     struct napi_struct *napi)
+{
+  list_add_tail(&amp;napi-&gt;poll_list, &amp;sd-&gt;poll_list);
+  __raise_softirq_irqoff(NET_RX_SOFTIRQ);
+}
+</pre></div><p data-pid="91mjsjjW">这段代码了做了两个重要的事情：</p><ol><li data-pid="KdagNh1X">将（从驱动的中断函数中传来的）napi_struct 变量，添加到 poll list，后者 attach 到这个 CPU 上的 softnet_data</li><li data-pid="3_qX72Jf">__raise_softirq_irqoff 触发一个 NET_RX_SOFTIRQ 类型软中断。这会触发执行 net_rx_action（如果没有正在执行），后者是网络设备初始化的时候注册的</li></ol><p data-pid="RtZJgxMX">接下来会看到，软中断处理函数 net_rx_action 会调用 NAPI 的 poll 函数来收包。</p><h3 id="sr-toc-42">5.2.3 关于 CPU 和网络数据处理的一点笔记</h3><p data-pid="pFO9XCyq">注意到目前为止，我们从硬中断处理函数中转移到软中断处理函数的逻辑，都是使用的本 CPU 变量。</p><p data-pid="wRF2wsa7">驱动的硬中断处理函数做的事情很少，但软中断将会在和硬中断相同的 CPU 上执行。这就 是为什么给每个 CPU 一个特定的硬中断非常重要：这个 CPU 不仅处理这个硬中断，而且通 过 NAPI 处理接下来的软中断来收包。</p><p data-pid="zl4ryUrP">后面我们会看到，Receive Packet Steering 可以将软中断分给其他 CPU。</p><h3 id="sr-toc-43">5.2.4 监控网络数据到达</h3><h3 id="sr-toc-44">硬中断请求</h3><p data-pid="_859qX4L">注意：由于某些驱动在 NAPI 运行时会关闭硬中断，因此只监控硬中断无法得到网络处理健 康状况的全景试图，硬中断监控只是整个监控方案的重要组成部分。</p><p data-pid="bthzHDcn">读取硬中断统计：</p><div><pre>$ cat /proc/interrupts
+            CPU0       CPU1       CPU2       CPU3
+   0:         46          0          0          0 IR-IO-APIC-edge      timer
+   1:          3          0          0          0 IR-IO-APIC-edge      i8042
+  30: 3361234770          0          0          0 IR-IO-APIC-fasteoi   aacraid
+  64:          0          0          0          0 DMAR_MSI-edge      dmar0
+  65:          1          0          0          0 IR-PCI-MSI-edge      eth0
+  66:  863649703          0          0          0 IR-PCI-MSI-edge      eth0-TxRx-0
+  67:  986285573          0          0          0 IR-PCI-MSI-edge      eth0-TxRx-1
+  68:         45          0          0          0 IR-PCI-MSI-edge      eth0-TxRx-2
+  69:        394          0          0          0 IR-PCI-MSI-edge      eth0-TxRx-3
+ NMI:    9729927    4008190    3068645    3375402  Non-maskable interrupts
+ LOC: 2913290785 1585321306 1495872829 1803524526  Local timer interrupts
+</pre></div><p data-pid="yt0RxcBw">可以看到有多少包进来、硬件中断频率，RX 队列被哪个 CPU 处理等信息。这里只能看到硬中 断数量，不能看出实际多少数据被接收或处理，因为一些驱动在 NAPI 收包时会关闭硬中断。 进一步，使用 Interrupt Coalescing 时也会影响这个统计。监控这个指标能帮你判断出你设 置的 Interrupt Coalescing 是不是在工作。</p><p data-pid="w-qhVhZD">为了使监控更加完整，需要同时监控 /proc/softirqs (前面提到) 和 /proc。</p><h3 id="sr-toc-45">5.2.5 数据接收调优</h3><h3 id="sr-toc-46">中断合并（Interrupt coalescing）</h3><p data-pid="EoRaXyeH">中断合并会将多个中断事件放到一起，累积到一定阈值后才向 CPU 发起中断请求。</p><p data-pid="6cqJRttf">这可以防止中断风暴，提升吞吐，降低 CPU 使用量，但延迟也变大；中断数量过多则相反。</p><p data-pid="_3yE4pyu">历史上，早期的 igb、e1000 版本，以及其他的都包含一个叫 InterruptThrottleRate 参数， 最近的版本已经被 ethtool 可配置的参数取代。</p><div><pre>$ sudo ethtool -c eth0
+Coalesce parameters for eth0:
+Adaptive RX: off  TX: off
+stats-block-usecs: 0
+sample-interval: 0
+pkt-rate-low: 0
+pkt-rate-high: 0
+...
+</pre></div><p data-pid="qx-Up8S_">ethtool 提供了用于中断合并相关的通用接口。但切记，不是所有的设备都支持完整的配 置。你需要查看驱动文档或代码来确定哪些支持，哪些不支持。ethtool 的文档说：“驱动没有实现的接口将会被静默忽略”。</p><p data-pid="btKk_lr-">某些驱动支持一个有趣的特性：“自适应 RX/TX 硬中断合并”。这个特性一般是在硬件实现的 。驱动通常需要做一些额外的工作来告诉网卡需要打开这个特性（前面的 igb 驱动代码里有 涉及）。</p><p data-pid="d5WAk-eL">自适应 RX/TX 硬中断合并带来的效果是：带宽比较低时降低延迟，带宽比较高时提升吞吐。</p><p data-pid="kYAZrtmP">用 ethtool -C 打开自适应 RX IRQ 合并：</p><div><pre>$ sudo ethtool -C eth0 adaptive-rx on
+</pre></div><p data-pid="2YP_r4v-">还可以用 ethtool -C 更改其他配置。常用的包括：</p><ul><li data-pid="jdYzWoPz">rx-usecs: How many usecs to delay an RX interrupt after a packet arrives.</li><li data-pid="QdBMtuVN">rx-frames: Maximum number of data frames to receive before an RX interrupt.</li><li data-pid="BSo3C-EU">rx-usecs-irq: How many usecs to delay an RX interrupt while an interrupt is being serviced by the host.<br>rx-frames-irq: Maximum number of data frames to receive before an RX interrupt is generated while the system is servicing an interrupt.</li></ul><p data-pid="T7FwpQ9E">请注意你的硬件可能只支持以上列表的一个子集，具体请参考相应的驱动说明或源码。</p><p data-pid="N9UIIvQa">不幸的是，通常并没有一个很好的文档来说明这些选项，最全的文档很可能是头文件。每个选项的解释见 include/uapi/linux/ethtool.h 。</p><p data-pid="FRo3j4Bv">注意：虽然硬中断合并看起来是个不错的优化项，但需要网络栈的其他一些 部分做针对性调整。只合并硬中断很可能并不会带来多少收益。</p><h3 id="sr-toc-47">调整硬中断亲和性（IRQ affinities）</h3><p data-pid="DIdpJBa-">If your NIC supports RSS / multiqueue or if you are attempting to optimize for data locality, you may wish to use a specific set of CPUs for handling interrupts generated by your NIC.</p><p data-pid="Is7cBHUl">Setting specific CPUs allows you to segment which CPUs will be used for processing which IRQs. These changes may affect how upper layers operate, as we’ve seen for the networking stack.</p><p data-pid="Vo8a-K8i">If you do decide to adjust your IRQ affinities, you should first check if you running the irqbalance daemon. This daemon tries to automatically balance IRQs to CPUs and it may overwrite your settings. If you are running irqbalance, you should either disable irqbalance or use the –banirq in conjunction with IRQBALANCE_BANNED_CPUS to let irqbalance know that it shouldn’t touch a set of IRQs and CPUs that you want to assign yourself.</p><p data-pid="pWVJos1o">Next, you should check the file /proc/interrupts for a list of the IRQ numbers for each network RX queue for your NIC.</p><p data-pid="e1RjBuDh">Finally, you can adjust the which CPUs each of those IRQs will be handled by modifying /proc/irq/IRQ_NUMBER/smp_affinity for each IRQ number.</p><p data-pid="40spYOYO">You simply write a hexadecimal bitmask to this file to instruct the kernel which CPUs it should use for handling the IRQ.</p><p data-pid="XCuzqe64">Example: Set the IRQ affinity for IRQ 8 to CPU 0</p><div><pre>$ sudo bash -c 'echo 1 &gt; /proc/irq/8/smp_affinity'
+</pre></div><h2 id="sr-toc-48">5.3 网络数据处理：开始</h2><p data-pid="htPn6wCI">一旦软中断代码判断出有 softirq 处于 pending 状态，就会开始处理，执行 net_rx_action，网络数据处理就此开始。</p><p data-pid="EEckYqB0">我们来看一下 net_rx_action 的循环部分，理解它是如何工作的。哪个部分可以调优， 哪个可以监控。</p><h3 id="sr-toc-49">5.3.1 net_rx_action 处理循环</h3><p data-pid="yK2JhSh1">net_rx_action 从包所在的内存开始处理，包是被设备通过 DMA 直接送到内存的。 函数遍历本 CPU 队列的 NAPI 变量列表，依次出队并操作之。处理逻辑考虑任务量（work ）和执行时间两个因素：</p><ol><li data-pid="zUglZyhP">跟踪记录工作量预算（work budget），预算可以调整</li><li data-pid="QzOKOvxv">记录消耗的时间</li></ol><p data-pid="SJTYJavF">net/core/dev.c:</p><div><pre>while (!list_empty(&amp;sd-&gt;poll_list)) {
+    struct napi_struct *n;
+    int work, weight;
+
+    /* If softirq window is exhausted then punt.
+     * Allow this to run for 2 jiffies since which will allow
+     * an average latency of 1.5/HZ.
+     */
+    if (unlikely(budget &lt;= 0 || time_after_eq(jiffies, time_limit)))
+      goto softnet_break;
+</pre></div><p data-pid="wdLYvdXc">这里可以看到内核是如何防止处理数据包过程霸占整个 CPU 的，其中 budget 是该 CPU 的 所有 NAPI 变量的总预算。这也是多队列网卡应该精心调整 IRQ Affinity 的原因。回忆前 面讲的，处理硬中断的 CPU 接下来会处理相应的软中断，进而执行上面包含 budget 的 这段逻辑。</p><p data-pid="uAm1t5mt">多网卡多队列可能会出现这样的情况：多个 NAPI 变量注册到同一个 CPU 上。每个 CPU 上 的所有 NAPI 变量共享一份 budget。</p><p data-pid="sHsPEVc6">如果没有足够的 CPU 来分散网卡硬中断，可以考虑增加 net_rx_action 允许每个 CPU 处理更多包。增加 budget 可以增加 CPU 使用量（top 等命令看到的 sitime 或 si 部分），但可以减少延迟，因为数据处理更加及时。</p><p data-pid="feLHvban">Note: the CPU will still be bounded by a time limit of 2 jiffies, regardless of the assigned budget.</p><h3 id="sr-toc-50">5.3.2 NAPI poll 函数及权重</h3><p data-pid="-Oj0i3MJ">回忆前面，网络设备驱动使用 netif_napi_add 注册 poll 方法，igb 驱动有如下代码：</p><div><pre>/* initialize NAPI */
+  netif_napi_add(adapter-&gt;netdev, &amp;q_vector-&gt;napi, igb_poll, 64);
+</pre></div><p data-pid="tAcknRRG">这注册了一个 NAPI 变量，hardcode 64 的权重。我们来看在 net_rx_action 处理循环 中这个值是如何使用的。 net/core/dev.c:</p><div><pre>weight = n-&gt;weight;
+
+work = 0;
+if (test_bit(NAPI_STATE_SCHED, &amp;n-&gt;state)) {
+        work = n-&gt;poll(n, weight);
+        trace_napi_poll(n);
+}
+
+WARN_ON_ONCE(work &gt; weight);
+
+budget -= work;
+</pre></div><p data-pid="Roe9v48v">其中的 n 是 struct napi 的变量。其中的 poll 指向 igb_poll。poll() 返回 处理的数据帧数量，budget 会减去这个值。</p><p data-pid="cHF4AKiK">所以，假设驱动使用 weight 值 64（Linux 3.13.0 的所有驱动都是 hardcode 这个值） ，设置 budget 默认值 300，那系统将在如下条件之一停止数据处理：</p><ol><li data-pid="eYR_mlIY">igb_poll 函数被调用了最多 5 次（如果没有数据需要处理，那次数就会很少）</li><li data-pid="-T1zzWO9">时间经过了至少 2 个 jiffies</li></ol><h3 id="sr-toc-51">5.3.3 NAPI 和设备驱动的合约（contract）</h3><p data-pid="XoNFlaEO">NAPI 子系统和设备驱动之间的合约，最重要的一点是关闭 NAPI 的条件。具体如下：</p><ol><li data-pid="hQVz9R2m">如果驱动的 poll 方法用完了它的全部 weight（默认 hardcode 64），那 它不要更改 NAPI 状态。接下来 net_rx_action loop 会做的</li><li data-pid="lIjtx2MH">如果驱动的 poll 方法没有用完全部 weight，那它必须关闭 NAPI。下次有硬件中断触发，驱动的硬件处理函数调用 napi_schedule 时，NAPI 会被重新打开</li></ol><p data-pid="qgg5y6qk">接下来先看 net_rx_action 如何处理合约的第一部分，然后看 poll 方法如何处理第 二部分。</p><h3 id="sr-toc-52">5.3.4 Finishing the net_rx_action loop</h3><p data-pid="gtTiiDo8">net_rx_action 循环的最后一部分代码处理前面提到的 NAPI 合约的第一部分。 net/core/dev.c:</p><div><pre>/* Drivers must not modify the NAPI state if they
+ 1. consume the entire weight.  In such cases this code
+ 2. still "owns" the NAPI instance and therefore can
+ 3. move the instance around on the list at-will.
+ */
+if (unlikely(work == weight)) {
+  if (unlikely(napi_disable_pending(n))) {
+    local_irq_enable();
+    napi_complete(n);
+    local_irq_disable();
+  } else {
+    if (n-&gt;gro_list) {
+      /* flush too old packets
+       * If HZ &lt; 1000, flush all packets.
+       */
+      local_irq_enable();
+      napi_gro_flush(n, HZ &gt;= 1000);
+      local_irq_disable();
+    }
+    list_move_tail(&amp;n-&gt;poll_list, &amp;sd-&gt;poll_list);
+  }
+}
+</pre></div><p data-pid="7PnIaIOC">如果全部 work 都用完了，net_rx_action 会面临两种情况：</p><ol><li data-pid="1AcvbI0L">网络设备需要关闭（例如，用户敲了 ifconfig eth0 down 命令）</li><li data-pid="AkM1WAjN">如果设备不需要关闭，那检查是否有 GRO（后面会介绍）列表。如果时钟 tick rate &gt;= 1000，所有最近被更新的 GRO network flow 都会被 flush。将这个 NAPI 变量移 到 list 末尾，这个循环下次再进入时，处理的就是下一个 NAPI 变量</li></ol><p data-pid="SpqDazkt">这就是包处理循环如何唤醒驱动注册的 poll 方法进行包处理的过程。接下来会看到， poll 方法会收割网络数据，发送到上层栈进行处理。</p><h3 id="sr-toc-53">5.3.5 到达 limit 时退出循环</h3><p data-pid="VEgmE7SV">net_rx_action 下列条件之一退出循环：</p><ol><li data-pid="KhnTrznt">这个 CPU 上注册的 poll 列表已经没有 NAPI 变量需要处理 (!list_empty(&amp;sd-&gt;poll_list))</li><li data-pid="AiioJSMZ"> 剩余的 budget &lt;= 0</li><li data-pid="-BGvCt0_"> 已经满足 2 个 jiffies 的时间限制</li></ol><p data-pid="OR7uoaq-">代码：</p><div><pre>/* If softirq window is exhausted then punt.
+ * Allow this to run for 2 jiffies since which will allow
+ * an average latency of 1.5/HZ.
+ */
+if (unlikely(budget &lt;= 0 || time_after_eq(jiffies, time_limit)))
+  goto softnet_break;
+</pre></div><p data-pid="kxa8ZP6z">如果跟踪 softnet_break，会发现很有意思的东西：</p><div><pre>From net/core/dev.c:
+
+softnet_break:
+  sd-&gt;time_squeeze++;
+  __raise_softirq_irqoff(NET_RX_SOFTIRQ);
+  goto out;
+</pre></div><p data-pid="1y_am1-I">softnet_data 变量更新统计信息，软中断的 NET_RX_SOFTIRQ 被关闭。</p><p data-pid="HyJDuIL8">time_squeeze 字段记录的是满足如下条件的次数：net_rx_action 有很多 work 要做但 是 budget 用完了，或者 work 还没做完但时间限制到了。这对理解网络处理的瓶颈至关重要 。我们后面会看到如何监控这个值。关闭 NET_RX_SOFTIRQ 是为了释放 CPU 时间给其他任务 用。这行代码是有意义的，因为只有我们有更多工作要做（还没做完）的时候才会执行到这里， 我们主动让出 CPU，不想独占太久。</p><p data-pid="OZwAHAFS">然后执行到了 out 标签所在的代码。另外还有一种条件也会跳转到 out 标签：所有 NAPI 变量都处理完了，换言之，budget 数量大于网络包数量，所有驱动都已经关闭 NAPI ，没有什么事情需要 net_rx_action 做了。</p><p data-pid="htmccGM5">out 代码段在从 net_rx_action 返回之前做了一件重要的事情：调用 net_rps_action_and_irq_enable。Receive Packet Steering 功能打开时这个函数 有重要作用：唤醒其他 CPU 处理网络包。</p><p data-pid="B-J31Vbu">我们后面会看到 RPS 是如何工作的。现在先看看怎样监控 net_rx_action 处理循环的 健康状态，以及进入 NAPI poll 的内部，这样才能更好的理解网络栈。</p><h3 id="sr-toc-54">5.3.6 NAPI poll</h3><p data-pid="CqFvqPeM">回忆前文，驱动程序会分配一段内存用于 DMA，将数据包写到内存。就像这段内存是由驱动 程序分配的一样，驱动程序也负责解绑（unmap）这些内存，读取数据，将数据送到网络栈 。</p><p data-pid="X9PothG3">我们看下 igb 驱动如何实现这一过程的。</p><p data-pid="vwuJB0Wp">igb_poll<br>可以看到 igb_poll 代码其实相当简单。 drivers/net/ethernet/intel/igb/igb_main.c:</p><div><pre>/**
+ *  igb_poll - NAPI Rx polling callback
+ *  @napi: napi polling structure
+ *  @budget: count of how many packets we should handle
+ **/
+static int igb_poll(struct napi_struct *napi, int budget)
+{
+        struct igb_q_vector *q_vector = container_of(napi,
+                                                     struct igb_q_vector,
+                                                     napi);
+        bool clean_complete = true;
+
+#ifdef CONFIG_IGB_DCA
+        if (q_vector-&gt;adapter-&gt;flags &amp; IGB_FLAG_DCA_ENABLED)
+                igb_update_dca(q_vector);
+#endif
+
+        /* ... */
+
+        if (q_vector-&gt;rx.ring)
+                clean_complete &amp;= igb_clean_rx_irq(q_vector, budget);
+
+        /* If all work not completed, return budget and keep polling */
+        if (!clean_complete)
+                return budget;
+
+        /* If not enough Rx work done, exit the polling mode */
+        napi_complete(napi);
+        igb_ring_irq_enable(q_vector);
+
+        return 0;
+}
+</pre></div><p data-pid="4xb9V3Yn">几件有意思的事情：</p><ul><li data-pid="GqJ5WJTu">如果内核 DCA（Direct Cache Access）功能打 开了，CPU 缓存是热的，对 RX ring 的访问会命中 CPU cache。更多 DCA 信息见本文 “Extra” 部分</li><li data-pid="Y7zdaosm">然后执行 igb_clean_rx_irq，这里做的事情非常多，我们后面看然后执行 clean_complete，判断是否仍然有 work 可以做。如果有，就返回 budget（ 回忆，这里是 hardcode 64）。在之前我们已经看到，net_rx_action 会将这个 NAPI 变量移动到 poll 列表的末尾</li><li data-pid="CXM7HQZB">如果所有 work 都已经完成，驱动通过调用 napi_complete 关闭 NAPI，并通过调用 igb_ring_irq_enable 重新进入可中断状态。下次中断到来的时候回重新打开 NAPI</li></ul><p data-pid="r1-VLL6V">我们来看 igb_clean_rx_irq 如何将网络数据送到网络栈。</p><p data-pid="CceI7F_V">igb_clean_rx_irq</p><p data-pid="MlaHCUoD">igb_clean_rx_irq 方法是一个循环，每次处理一个包，直到 budget 用完，或者没有数 据需要处理了。</p><p data-pid="KTBJBoNC">做的几件重要事情：</p><ol><li data-pid="LhHJ30Z4">分配额外的 buffer 用于接收数据，因为已经用过的 buffer 被 clean out 了。一次分配 IGB_RX_BUFFER_WRITE (16) 个。</li><li data-pid="RW2rUBQM">从 RX 队列取一个 buffer，保存到一个 skb 类型的变量中 判断这个 buffer 是不是一个包的最后一个 buffer。如果是，继续处理；如果不是，继续 从 buffer 列表中拿出下一个<br>buffer，加到 skb。当数据帧的大小比一个 buffer 大的时候， 会出现这种情况 验证数据的 layout 和头信息是正确的<br>更新 skb-&gt;len，表示这个包已经处理的字节数 设置 skb 的 hash, checksum, timestamp, VLAN<br>id, protocol 字段。hash， checksum，timestamp，VLAN ID 信息是硬件提供的，如果硬件报告<br>checksum error， csum_error 统计就会增加。如果 checksum 通过了，数据是 UDP 或者 TCP<br>数据，skb 就会 被标记成 CHECKSUM_UNNECESSARY 构建的 skb 经<br>napi_gro_receive() 进入协议栈 更新处理过的包的统计信息 循环直至处理的包数量达到 budget</li></ol><p data-pid="HssT3Vzt">循环结束的时候，这个函数设置收包的数量和字节数统计信息。</p><p data-pid="meHI7GpF">接下来在进入协议栈之前，我们先开两个小差：首先是看一些如何监控和调优软中断，其次 是介绍 GRO。有了这个两个背景，后面（通过 napi_gro_receive 进入）协议栈部分会更容易理解。</p><h3 id="sr-toc-55">5.3.7 监控网络数据处理</h3><p data-pid="DcM1P8xv">/proc/net/softnet_stat<br>前面看到，如果 budget 或者 time limit 到了而仍有包需要处理，那 net_rx_action 在退出 循环之前会更新统计信息。这个信息存储在该 CPU 的 struct softnet_data 变量中。</p><p data-pid="F4b5Uzol">这些统计信息打到了 / proc/net/softnet_stat，但不幸的是，关于这个的文档很少。每一 列代表什么并没有标题，而且列的内容会随着内核版本可能发生变化。</p><p data-pid="cIg8pByM">在内核 3.13.0 中，你可以阅读内核源码，查看每一列分别对应什么。 net/core/net-procfs.c:</p><div><pre>seq_printf(seq,
+       "%08x %08x %08x %08x %08x %08x %08x %08x %08x %08x %08x\n",
+       sd-&gt;processed, sd-&gt;dropped, sd-&gt;time_squeeze, 0,
+       0, 0, 0, 0, /* was fastroute */
+       sd-&gt;cpu_collision, sd-&gt;received_rps, flow_limit_count);
+</pre></div><p data-pid="_BP9_S8T">其中一些的名字让人很困惑，而且在你意想不到的地方更新。在接下来的网络栈分析说，我 们会举例说明其中一些字段是何时、在哪里被更新的。前面我们已经看到了 squeeze_time 是在 net_rx_action 在被更新的，到此时，如下数据你应该能看懂了：</p><div><pre>$ cat /proc/net/softnet_stat
+6dcad223 00000000 00000001 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+6f0e1565 00000000 00000002 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+660774ec 00000000 00000003 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+61c99331 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+6794b1b3 00000000 00000005 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+6488cb92 00000000 00000001 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+</pre></div><p data-pid="ZdQ93M1O">关于 / proc/net/softnet_stat 的重要细节:</p><ol><li data-pid="qkRgHwY8">每一行代表一个 struct softnet_data 变量。因为每个 CPU 只有一个该变量，所以每行 其实代表一个 CPU</li><li data-pid="a9xYMxWw"> 每列用空格隔开，数值用 16 进制表示</li><li data-pid="2qImv4PZ">第一列 sd-&gt;processed，是处理的网络帧的数量。如果你使用了 ethernet bonding， 那这个值会大于总的网络帧的数量，因为 ethernet bonding 驱动有时会触发网络数据被重新处理（re-processed）</li><li data-pid="hsjf6h18">第二列，sd-&gt;dropped，是因为处理不过来而 drop 的网络帧数量。后面会展开这一话题</li><li data-pid="4tLHFlJk">第三列，sd-&gt;time_squeeze，前面介绍过了，由于 budget 或 time limit 用完而退出 net_rx_action 循环的次数 接下来的 5 列全是 0</li><li data-pid="--MpcUFo"> 第九列，sd-&gt;cpu_collision，是为了发送包而获取锁的时候有冲突的次数</li><li data-pid="M4khlmfc">第十列，sd-&gt;received_rps，是这个 CPU 被其他 CPU 唤醒去收包的次数</li><li data-pid="NVsJrqzi">最后一列，flow_limit_count，是达到 flow limit 的次数。flow limit 是 RPS 的特性， 后面会稍微介绍一下</li></ol><p data-pid="kJ5bVBrG">如果你要画图监控这些数据，确保你的列和相应的字段是对的上的，最保险的方式是阅读相 应版本的内核代码。</p><h3 id="sr-toc-56">5.3.8 网络数据处理调优</h3><h3 id="sr-toc-57">5.3.8.1 调整 net_rx_action budget</h3><p data-pid="Y83b9f8X">net_rx_action budget 表示一个 CPU 单次轮询（poll）所允许的最大收包数量。单次 poll 收包时，所有注册到这个 CPU 的 NAPI 变量收包数量之和不能大于这个阈值。 调整：</p><div><pre>$ sudo sysctl -w net.core.netdev_budget=600
+</pre></div><p data-pid="xJzc3nMr">如果要保证重启仍然生效，需要将这个配置写到 / etc/sysctl.conf。</p><p data-pid="O9GKCwfQ">Linux 3.13.0 的默认配置是 300。</p><h2 id="sr-toc-58">5.4 GRO（Generic Receive Offloading）</h2><p data-pid="na5Ha4z3">Large Receive Offloading (LRO) 是一个硬件优化，GRO 是 LRO 的一种软件实现。</p><p data-pid="67VuWkKc">两种方案的主要思想都是：通过合并 “足够类似” 的包来减少传送给网络栈的包数，这有 助于减少 CPU 的使用量。例如，考虑大文件传输的场景，包的数量非常多，大部分包都是一 段文件数据。相比于每次都将小包送到网络栈，可以将收到的小包合并成一个很大的包再送 到网络栈。GRO 使协议层只需处理一个 header，而将包含大量数据的整个大包送到用 户程序。</p><p data-pid="dr8xqCAv">这类优化方式的缺点是 信息丢失：包的 option 或者 flag 信息在合并时会丢 失。这也是为什么大部分人不使用或不推荐使用 LRO 的原因。</p><p data-pid="rlCXA9xg">LRO 的实现，一般来说，对合并包的规则非常宽松。GRO 是 LRO 的软件实现，但是对于包合并 的规则更严苛。</p><p data-pid="1iXH-u99">顺便说一下，如果用 tcpdump 抓包，有时会看到机器收到了看起来不现实的、非常大的包， 这很可能是你的系统开启了 GRO。接下来会看到，tcpdump 的抓包点（捕获包的 tap ）在整个栈的更后面一些，在 GRO 之后。</p><h3 id="sr-toc-59">5.4.1 使用 ethtool 修改 GRO 配置</h3><p data-pid="aJ340gT8">-k 查看 GRO 配置：</p><div><pre>$ ethtool -k eth0 | grep generic-receive-offload
+generic-receive-offload: on
+</pre></div><p data-pid="mBAb7xRs">-K 修改 GRO 配置：</p><div><pre>$ sudo ethtool -K eth0 gro on
+</pre></div><p data-pid="nEy7MIQD">注意：对于大部分驱动，修改 GRO 配置会涉及先 down 再 up 这个网卡，因此这个网卡上的连接 都会中断。</p><h2 id="sr-toc-60">5.5 napi_gro_receive</h2><p data-pid="wofeWQ1_">如果开启了 GRO，napi_gro_receive 将负责处理网络数据，并将数据送到协议栈，大部分 相关的逻辑在函数 dev_gro_receive 里实现。</p><h3 id="sr-toc-61">5.5.1 dev_gro_receive</h3><p data-pid="7BxLDyui">这个函数首先检查 GRO 是否开启了，如果是，就准备做 GRO。GRO 首先遍历一个 offload filter 列表，如果高层协议认为其中一些数据属于 GRO 处理的范围，就会允许其对数据进行 操作。</p><p data-pid="LcCcYPFz">协议层以此方式让网络设备层知道，这个 packet 是不是当前正在处理的一个需要做 GRO 的 network flow 的一部分，而且也可以通过这种方式传递一些协议相关的信息。例如，TCP 协 议需要判断是否以及合适应该将一个 ACK 包合并到其他包里。</p><p data-pid="ZUiRYxQi">net/core/dev.c:</p><div><pre>list_for_each_entry_rcu(ptype, head, list) {
+  if (ptype-&gt;type != type || !ptype-&gt;callbacks.gro_receive)
+    continue;
+
+  skb_set_network_header(skb, skb_gro_offset(skb));
+  skb_reset_mac_len(skb);
+  NAPI_GRO_CB(skb)-&gt;same_flow = 0;
+  NAPI_GRO_CB(skb)-&gt;flush = 0;
+  NAPI_GRO_CB(skb)-&gt;free = 0;
+
+  pp = ptype-&gt;callbacks.gro_receive(&amp;napi-&gt;gro_list, skb);
+  break;
+}
+</pre></div><p data-pid="ne4k2Ubr">如果协议层提示是时候 flush GRO packet 了，那就到下一步处理了。这发生在 napi_gro_complete，会进一步调用相应协议的 gro_complete 回调方法，然后调用 netif_receive_skb 将包送到协议栈。 这个过程见 net/core/dev.c：</p><div><pre>if (pp) {
+  struct sk_buff *nskb = *pp;
+
+  *pp = nskb-&gt;next;
+  nskb-&gt;next = NULL;
+  napi_gro_complete(nskb);
+  napi-&gt;gro_count--;
+}
+</pre></div><p data-pid="Be0b60uy">接下来，如果协议层将这个包合并到一个已经存在的 flow，napi_gro_receive 就没什么事 情需要做，因此就返回了。如果 packet 没有被合并，而且 GRO 的数量小于 MAX_GRO_SKBS（ 默认是 8），就会创建一个新的 entry 加到本 CPU 的 NAPI 变量的 gro_list。 net/core/dev.c：</p><div><pre>if (NAPI_GRO_CB(skb)-&gt;flush || napi-&gt;gro_count &gt;= MAX_GRO_SKBS)
+  goto normal;
+
+napi-&gt;gro_count++;
+NAPI_GRO_CB(skb)-&gt;count = 1;
+NAPI_GRO_CB(skb)-&gt;age = jiffies;
+skb_shinfo(skb)-&gt;gso_size = skb_gro_len(skb);
+skb-&gt;next = napi-&gt;gro_list;
+napi-&gt;gro_list = skb;
+ret = GRO_HELD;
+</pre></div><p data-pid="BcYye6tW">这就是 Linux 网络栈中 GRO 的工作原理。</p><h2 id="sr-toc-62">5.6 napi_skb_finish</h2><p data-pid="Ch7Gzr1s">一旦 dev_gro_receive 完成，napi_skb_finish 就会被调用，其如果一个 packet 被合并了 ，就释放不用的变量；或者调用 netif_receive_skb 将数据发送到网络协议栈（因为已经 有 MAX_GRO_SKBS 个 flow 了，够 GRO 了）。</p><p data-pid="dlNCmSSP">接下来，是看 netif_receive_skb 如何将数据交给协议层。但在此之前，我们先看一下 RPS。</p><h2 id="sr-toc-63">六 RPS (Receive Packet Steering)</h2><p data-pid="5KOIEc1a">回忆前面我们讨论了网络设备驱动是如何注册 NAPI poll 方法的。每个 NAPI 变量都会运 行在相应 CPU 的软中断的上下文中。而且，触发硬中断的这个 CPU 接下来会负责执行相应的软 中断处理函数来收包。</p><p data-pid="2dquHc_n">换言之，同一个 CPU 既处理硬中断，又处理相应的软中断。</p><p data-pid="uxC5A3iO">一些网卡（例如 Intel I350）在硬件层支持多队列。这意味着收进来的包会被通过 DMA 放到 位于不同内存的队列上，而不同的队列有相应的 NAPI 变量管理软中断 poll() 过程。因此， 多个 CPU 同时处理从网卡来的中断，处理收包过程。</p><p data-pid="FKPrldRX">这个特性被称作 RSS（Receive Side Scaling，接收端扩展）。</p><p data-pid="eAOhnSj4">RPS （Receive Packet Steering，接收包控制，接收包引导）是 RSS 的一种软件实现。因为是软 件实现的，意味着任何网卡都可以使用这个功能，即便是那些只有一个接收队列的网卡。但 是，因为它是软件实现的，这意味着 RPS 只能在 packet 通过 DMA 进入内存后，RPS 才能开始工 作。</p><p data-pid="wMAn8Yw4">这意味着，RPS 并不会减少 CPU 处理硬件中断和 NAPI poll（软中断最重要的一部分）的时 间，但是可以在 packet 到达内存后，将 packet 分到其他 CPU，从其他 CPU 进入协议栈。</p><p data-pid="hHPS-M6o">RPS 的工作原理是对个 packet 做 hash，以此决定分到哪个 CPU 处理。然后 packet 放到每个 CPU 独占的接收后备队列（backlog）等待处理。这个 CPU 会触发一个进程间中断（ IPI，Inter-processor Interrupt）向对端 CPU。如果当时对端 CPU 没有在处理 backlog 队列收包，这个进程间中断会 触发它开始从 backlog 收包。/proc/net/softnet_stat 其中有一列是记录 softnet_data 变量（也即这个 CPU）收到了多少 IPI（received_rps 列）。</p><p data-pid="V6hzRZP1">因此，netif_receive_skb 或者继续将包送到协议栈，或者交给 RPS，后者会转交给其他 CPU 处理。</p><h2 id="sr-toc-64">6.1 RPS 调优</h2><p data-pid="xtR3raq8">使用 RPS 需要在内核做配置（Ubuntu + Kernel 3.13.0 支持），而且需要一个掩码（ bitmask）指定哪些 CPU 可以处理那些 RX 队列。相关的一些信息可以在内核文档 里找到。</p><p data-pid="n55DlDFZ">bitmask 配置位于：/sys/class/net/DEVICE_NAME/queues/QUEUE/rps_cpus。</p><p data-pid="blM9UojU">例如，对于 eth0 的 queue 0，你需要更改 / sys/class/net/eth0/queues/rx-0/rps_cpus。 内核文档 里说，对一些特定的配置下，RPS 没必要了。</p><p data-pid="aTjXCxbg">注意：打开 RPS 之后，原来不需要处理软中断（softirq）的 CPU 这时也会参与处理。因此相 应 CPU 的 NET_RX 数量，以及 si 或 sitime 占比都会相应增加。你可以对比启用 RPS 前后的 数据，以此来确定你的配置是否生效，以及是否符合预期（哪个 CPU 处理哪个网卡的哪个中 断）。</p><h2 id="sr-toc-65">七、RFS (Receive Flow Steering)</h2><p data-pid="zxMVjCmv">RFS（Receive flow steering）和 RPS 配合使用。RPS 试图在 CPU 之间平衡收包，但是没考虑 数据的本地性问题，如何最大化 CPU 缓存的命中率。RFS 将属于相同 flow 的包送到相同的 CPU 进行处理，可以提高缓存命中率。</p><h2 id="sr-toc-66">7.1 调优：打开 RFS</h2><p data-pid="v1vLaSvo">RPS 记录一个全局的 hash table，包含所有 flow 的信息。这个 hash table 的大小可以在 net.core.rps_sock_flow_entries：</p><div><pre>$ sudo sysctl -w net.core.rps_sock_flow_entries=32768
+</pre></div><p data-pid="GQ4TH9wf">其次，你可以设置每个 RX queue 的 flow 数量，对应着 rps_flow_cnt：</p><p data-pid="0XrGWPnL">例如，eth0 的 RX queue0 的 flow 数量调整到 2048：</p><div><pre>$ sudo bash -c 'echo 2048 &gt; /sys/class/net/eth0/queues/rx-0/rps_flow_cnt'
+</pre></div><h2 id="sr-toc-67">八、aRFS (Hardware accelerated RFS)</h2><p data-pid="gJD6416x">RFS 可以用硬件加速，网卡和内核协同工作，判断哪个 flow 应该在哪个 CPU 上处理。这需要网 卡和网卡驱动的支持。</p><p data-pid="IwPFoEza">如果你的网卡驱动里对外提供一个 ndo_rx_flow_steer 函数，那就是支持 RFS。</p><h2 id="sr-toc-68">8.1 调优: 启用 aRFS</h2><p data-pid="rw9MvGh9">假如你的网卡支持 aRFS，你可以开启它并做如下配置：</p><ul><li data-pid="lLuA63rY">打开并配置 RPS</li><li data-pid="UtbC-_7O"> 打开并配置 RFS</li><li data-pid="O0HZ32ur"> 内核中编译期间指定了 CONFIG_RFS_ACCEL 选项。Ubuntu kernel 3.13.0 是有的</li><li data-pid="HRfJJnST">打开网卡的 ntuple 支持。可以用 ethtool 查看当前的 ntuple 设置</li><li data-pid="nCBA2PRk">配置 IRQ（硬中断）中每个 RX 和 CPU 的对应关系</li></ul><p data-pid="yWPkvsuP">以上配置完成后，aRFS 就会自动将 RX queue 数据移动到指定 CPU 的内存，每个 flow 的包都会 到达同一个 CPU，不需要你再通过 ntuple 手动指定每个 flow 的配置了。</p><h2 id="sr-toc-69">九、从 netif_receive_skb 进入协议栈</h2><p data-pid="8LgeU8eU">重新捡起我们前面已经几次提到过的 netif_receive_skb，这个函数在好几个地方被调用 。两个最重要的地方（前面都看到过了）：</p><ul><li data-pid="vqCpYXsP">napi_skb_finish：当 packet 不需要被合并到已经存在的某个 GRO flow 的时候</li><li data-pid="h1m70puD"> napi_gro_complete：协议层提示需要 flush 当前的 flow 的时候</li></ul><p data-pid="Uyk1GSE9">提示：netif_receive_skb 和它调用的函数都运行在软中断处理循环（softirq processing loop）的上下文中，因此这里的时间会记录到 top 命令看到的 si 或者 sitime 字段。</p><p data-pid="Jrp7njSr">netif_receive_skb 首先会检查用户有没有设置一个接收时间戳选项（sysctl），这个选 项决定在 packet 在到达 backlog queue 之前还是之后打时间戳。如果启用，那立即打时间戳 ，在 RPS 之前（CPU 和 backlog queue 绑定）；如果没有启用，那只有在它进入到 backlog queue 之后才会打时间戳。如果 RPS 开启了，那这个选项可以将打时间戳的任务分散个其他 CPU，但会带来一些延迟。</p><h2 id="sr-toc-70">9.1 调优: 收包打时间戳（RX packet timestamping）</h2><p data-pid="7_YYqI8g">你可以调整包被收到后，何时给它打时间戳。</p><p data-pid="3EQzYkqW">关闭收包打时间戳：</p><div><pre>$ sudo sysctl -w net.core.netdev_tstamp_prequeue=0
+</pre></div><p data-pid="X0oVTigf">默认是 1。</p><h2 id="sr-toc-71">十、netif_receive_skb</h2><p data-pid="VMkE1zZU">处理完时间戳后，netif_receive_skb 会根据 RPS 是否启用来做不同的事情。我们先来看简 单情况，RPS 未启用。</p><h2 id="sr-toc-72">10.1 不使用 RPS（默认）</h2><p data-pid="YYxfWadk">如果 RPS 没启用，会调用__netif_receive_skb，它做一些 bookkeeping 工作，进而调用 __netif_receive_skb_core，将数据移动到离协议栈更近一步。</p><p data-pid="N_zIxdvB">__netif_receive_skb_core 工作的具体细节我们稍后再看，先看一下 RPS 启用的情况下的 代码调用关系，它也会调到这个函数的。</p><h2 id="sr-toc-73">10.2 使用 RPS</h2><p data-pid="PlTrAyBi">如果 RPS 启用了，它会做一些计算，判断使用哪个 CPU 的 backlog queue，这个过程由 get_rps_cpu 函数完成。 net/core/dev.c:</p><div><pre>cpu = get_rps_cpu(skb-&gt;dev, skb, &amp;rflow);
+
+if (cpu &gt;= 0) {
+  ret = enqueue_to_backlog(skb, cpu, &amp;rflow-&gt;last_qtail);
+  rcu_read_unlock();
+  return ret;
+}
+</pre></div><p data-pid="-gbCYpuB">get_rps_cpu 会考虑前面提到的 RFS 和 aRFS 设置，以此选出一个合适的 CPU，通过调用 enqueue_to_backlog 将数据放到它的 backlog queue。</p><h2 id="sr-toc-74">10.3 enqueue_to_backlog</h2><p data-pid="ebxbcm7C">首先从远端 CPU 的 struct softnet_data 变量获取 backlog queue 长度。如果 backlog 大于 netdev_max_backlog，或者超过了 flow limit，直接 drop，并更新 softnet_data 的 drop 统计。注意这是远端 CPU 的统计。</p><p data-pid="BV9xgZDz">net/core/dev.c:</p><div><pre>qlen = skb_queue_len(&amp;sd-&gt;input_pkt_queue);
+    if (qlen &lt;= netdev_max_backlog &amp;&amp; !skb_flow_limit(skb, qlen)) {
+        if (skb_queue_len(&amp;sd-&gt;input_pkt_queue)) {
+enqueue:
+            __skb_queue_tail(&amp;sd-&gt;input_pkt_queue, skb);
+            input_queue_tail_incr_save(sd, qtail);
+            return NET_RX_SUCCESS;
+        }
+
+        /* Schedule NAPI for backlog device */
+        if (!__test_and_set_bit(NAPI_STATE_SCHED, &amp;sd-&gt;backlog.state)) {
+            if (!rps_ipi_queued(sd))
+                ____napi_schedule(sd, &amp;sd-&gt;backlog);
+        }
+        goto enqueue;
+    }
+    sd-&gt;dropped++;
+
+    kfree_skb(skb);
+    return NET_RX_DROP;
+</pre></div><p data-pid="C1q7sPMH">enqueue_to_backlog 被调用的地方很少。在基于 RPS 处理包的地方，以及 netif_rx，会 调用到它。大部分驱动都不应该使用 netif_rx，而应该是用 netif_receive_skb。如果 你没用到 RPS，你的驱动也没有使用 netif_rx，那增大 backlog 并不会带来益处，因为它 根本没被用到。</p><p data-pid="zExfSI4J">注意：检查你的驱动，如果它调用了 netif_receive_skb，而且你没用 RPS，那增大 netdev_max_backlog 并不会带来任何性能提升，因为没有数据包会被送到 input_pkt_queue。</p><p data-pid="_Vf41qQD">如果 input_pkt_queue 足够小，而 flow limit（后面会介绍）也还没达到（或者被禁掉了 ），那数据包将会被放到队列。这里的逻辑有点 funny，但大致可以归为为：</p><ul><li data-pid="NU56FmHO">如果 backlog 是空的：如果远端 CPU NAPI 变量没有运行，并且 IPI 没有被加到队列，那就 触发一个 IPI 加到队列，然后调用____napi_schedule 进一步处理</li><li data-pid="chLqoPR6">如果 backlog 非空，或者远端 CPU NAPI 变量正在运行，那就 enqueue 包</li></ul><p data-pid="dKE8-fnR">这里使用了 goto，所以代码看起来有点 tricky。</p><p data-pid="L_dhUoFg">net/core/dev.c:</p><div><pre>if (skb_queue_len(&amp;sd-&gt;input_pkt_queue)) {
+enqueue:
+         __skb_queue_tail(&amp;sd-&gt;input_pkt_queue, skb);
+         input_queue_tail_incr_save(sd, qtail);
+         rps_unlock(sd);
+         local_irq_restore(flags);
+         return NET_RX_SUCCESS;
+ }
+
+ /* Schedule NAPI for backlog device
+  * We can use non atomic operation since we own the queue lock
+  */
+ if (!__test_and_set_bit(NAPI_STATE_SCHED, &amp;sd-&gt;backlog.state)) {
+         if (!rps_ipi_queued(sd))
+                 ____napi_schedule(sd, &amp;sd-&gt;backlog);
+ }
+ goto enqueue;
+</pre></div><h3 id="sr-toc-75">10.3.1 Flow limits</h3><p data-pid="2w4gW6ia">RPS 在不同 CPU 之间分发 packet，但是，如果一个 flow 特别大，会出现单个 CPU 被打爆，而 其他 CPU 无事可做（饥饿）的状态。因此引入了 flow limit 特性，放到一个 backlog 队列的属 于同一个 flow 的包的数量不能超过一个阈值。这可以保证即使有一个很大的 flow 在大量收包 ，小 flow 也能得到及时的处理。</p><p data-pid="VxEWmLKP">检查 flow limit 的代码，net/core/dev.c：</p><div><pre>if (qlen &lt;= netdev_max_backlog &amp;&amp; !skb_flow_limit(skb, qlen)) {
+</pre></div><p data-pid="cAeqeZC3">默认，flow limit 功能是关掉的。要打开 flow limit，你需要指定一个 bitmap（类似于 RPS 的 bitmap）。</p><h3 id="sr-toc-76">10.3.2 监控：由于 input_pkt_queue 打满或 flow limit 导致的丢包</h3><p data-pid="AW95Bl_s">在 / proc/net/softnet_stat 里面的 dropped 列计数，包含本节提到的原因导致的 drop。</p><h3 id="sr-toc-77">10.3.3 调优</h3><p data-pid="4uKGVVmb">Tuning: Adjusting netdev_max_backlog to prevent drops</p><p data-pid="BrtMo42Q">在调整这个值之前，请先阅读前面的 “注意”。</p><p data-pid="gHvEkyKk">如果你使用了 RPS，或者你的驱动调用了 netif_rx，那增加 netdev_max_backlog 可以改 善在 enqueue_to_backlog 里的丢包：</p><p data-pid="3toiPqQc">例如：increase backlog to 3000 with sysctl.</p><div><pre>$ sudo sysctl -w net.core.netdev_max_backlog=3000
+</pre></div><p data-pid="fAhK-haB">默认值是 1000。</p><p data-pid="JVXDzp8w">Tuning: Adjust the NAPI weight of the backlog poll loop</p><p data-pid="Xwnls8Cd">net.core.dev_weight 决定了 backlog poll loop 可以消耗的整体 budget（参考前面更改 net.core.netdev_budget 的章节）：</p><div><pre>$ sudo sysctl -w net.core.dev_weight=600
+</pre></div><p data-pid="cj85ElhZ">默认值是 64。</p><p data-pid="mKoknrMA">记住，backlog 处理逻辑和设备驱动的 poll 函数类似，都是在软中断（softirq）的上下文 中执行，因此受整体 budget 和处理时间的限制，前面已经分析过了。</p><p data-pid="SMo7eWjA">Tuning: Enabling flow limits and tuning flow limit hash table size</p><div><pre>$ sudo sysctl -w net.core.flow_limit_table_len=8192
+</pre></div><p data-pid="ir7X-dRU">默认值是 4096.</p><p data-pid="5xcqi-rk">这只会影响新分配的 flow hash table。所以，如果你想增加 table size 的话，应该在打开 flow limit 功能之前设置这个值。</p><p data-pid="VQfSaF4o">打开 flow limit 功能的方式是，在 / proc/sys/net/core/flow_limit_cpu_bitmap 中指定一 个 bitmask，和通过 bitmask 打开 RPS 的操作类似。</p><h2 id="sr-toc-78">10.4 处理 backlog 队列：NAPI poller</h2><p data-pid="xIC2jvMc">每个 CPU 都有一个 backlog queue，其加入到 NAPI 变量的方式和驱动差不多，都是注册一个 poll 方法，在软中断的上下文中处理包。此外，还提供了一个 weight，这也和驱动类似 。</p><p data-pid="hsOwHeAH">注册发生在网络系统初始化的时候。</p><p data-pid="nb41g7Q0">net/core/dev.c 的 net_dev_init 函数：</p><div><pre>sd-&gt;backlog.poll = process_backlog;
+sd-&gt;backlog.weight = weight_p;
+sd-&gt;backlog.gro_list = NULL;
+sd-&gt;backlog.gro_count = 0;
+</pre></div><p data-pid="Kakr-uy7">backlog NAPI 变量和设备驱动 NAPI 变量的不同之处在于，它的 weight 是可以调节的，而设备 驱动是 hardcode 64。在下面的调优部分，我们会看到如何用 sysctl 调整这个设置。</p><h2 id="sr-toc-79">10.5 process_backlog</h2><p data-pid="VFfeMQ4X">process_backlog 是一个循环，它会一直运行直至 weight（前面介绍了）用完，或者 backlog 里没有数据了。</p><p data-pid="AvrmTauo">backlog queue 里的数据取出来，传递给__netif_receive_skb。这个函数做的事情和 RPS 关闭的情况下做的事情一样。即，__netif_receive_skb 做一些 bookkeeping 工作，然后调 用__netif_receive_skb_core 将数据发送给更上面的协议层。</p><p data-pid="YZlfVcmQ">process_backlog 和 NAPI 之间遵循的合约，和驱动和 NAPI 之间的合约相同：NAPI is disabled if the total weight will not be used. The poller is restarted with the call to ____napi_schedule from enqueue_to_backlog as described above.</p><p data-pid="awcTqdDf">函数返回接收完成的数据帧数量（在代码中是变量 work），net_rx_action（前面介绍了 ）将会从 budget（通过 net.core.netdev_budget 可以调整，前面介绍了）里减去这个值。</p><h2 id="sr-toc-80">10.6 __netif_receive_skb_core：将数据送到抓包点（tap）或协议层</h2><p data-pid="yd212kh6">__netif_receive_skb_core 完成将数据送到协议栈这一繁重工作（the heavy lifting of delivering the data)。在此之前，它会先检查是否插入了 packet tap（探 测点），这些 tap 是抓包用的。例如，AF_PACKET 地址族就可以插入这些抓包指令， 一般通过 libpcap 库。</p><p data-pid="E7bQ6xKs">如果存在抓包点（tap），数据就会先到抓包点，然后才到协议层。</p><h2 id="sr-toc-81">10.7 送到抓包点（tap）</h2><p data-pid="z8p32QRJ">如果有 packet tap（通常通过 libpcap），packet 会送到那里。 net/core/dev.c:</p><div><pre>list_for_each_entry_rcu(ptype, &amp;ptype_all, list) {
+  if (!ptype-&gt;dev || ptype-&gt;dev == skb-&gt;dev) {
+    if (pt_prev)
+      ret = deliver_skb(skb, pt_prev, orig_dev);
+    pt_prev = ptype;
+  }
+}
+</pre></div><p data-pid="dbGaJpMg">如果对 packet 如何经过 pcap 有兴趣，可以阅读 net/packet/af_packet.c。</p><h2 id="sr-toc-82">10.8 送到协议层</h2><p data-pid="LgARYJlI">处理完 taps 之后，__netif_receive_skb_core 将数据发送到协议层。它会从数据包中取出 协议信息，然后遍历注册在这个协议上的回调函数列表。</p><p data-pid="xJrSTPLj">可以看__netif_receive_skb_core 函数，net/core/dev.c:</p><div><pre>type = skb-&gt;protocol;
+list_for_each_entry_rcu(ptype,
+                &amp;ptype_base[ntohs(type) &amp; PTYPE_HASH_MASK], list) {
+        if (ptype-&gt;type == type &amp;&amp;
+            (ptype-&gt;dev == null_or_dev || ptype-&gt;dev == skb-&gt;dev ||
+             ptype-&gt;dev == orig_dev)) {
+                if (pt_prev)
+                        ret = deliver_skb(skb, pt_prev, orig_dev);
+                pt_prev = ptype;
+        }
+}
+</pre></div><p data-pid="HlSR3qWj">上面的 ptype_base 是一个 hash table，定义在 net/core/dev.c 中:</p><div><pre>struct list_head ptype_base[PTYPE_HASH_SIZE] __read_mostly;
+</pre></div><p data-pid="dBsiiU0R">每种协议在上面的 hash table 的一个 slot 里，添加一个过滤器到列表里。这个列表的头用如 下函数获取：</p><div><pre>static inline struct list_head *ptype_head(const struct packet_type *pt)
+{
+        if (pt-&gt;type == htons(ETH_P_ALL))
+                return &amp;ptype_all;
+        else
+                return &amp;ptype_base[ntohs(pt-&gt;type) &amp; PTYPE_HASH_MASK];
+}
+</pre></div><p data-pid="HIjtDKtC">添加的时候用 dev_add_pack 这个函数。这就是协议层如何注册自身，用于处理相应协议的 网络数据的。</p><p data-pid="clC09KAZ">现在，你已经知道了数据是如何从卡进入到协议层的了。</p><p data-pid="d_jlqKQU">---TBD</p></sr-rd-content>
+                            
+                            <sr-rd-footer>
+                                <sr-rd-footer-group>
+                                    <sr-rd-footer-line></sr-rd-footer-line>
+                                    <sr-rd-footer-text>全文完</sr-rd-footer-text>
+                                    <sr-rd-footer-line></sr-rd-footer-line>
+                                </sr-rd-footer-group>
+                                <sr-rd-footer-copywrite>
+                                    <div>本文由 <a href="http://ksria.com/simpread" target="_blank">简悦 SimpRead</a> 转码，用以提升阅读体验，<a href="https://zhuanlan.zhihu.com/p/367788927" target="_blank">原文地址 </a></div>
+                                </sr-rd-footer-copywrite>
+                            </sr-rd-footer>
+                        </sr-read>
+                    </body>
+                </html>
